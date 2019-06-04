@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class MainController implements Initializable {
+public class MainController  {
 
 	@FXML
 	private AnchorPane mainScreen;
@@ -56,14 +56,13 @@ public class MainController implements Initializable {
 		displayScreen("../ui/Report.fxml");
 	}
 
-	@Override
-	public void initialize(URL url, ResourceBundle bundle) {
-//    	try {
-//			displayScreen("../ui/ViewIssuedBooks.fxml");
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	public void initialize() {
+    	try {
+			displayScreen("../ui/CheckoutBook.fxml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	void displayScreen(String fxmlPath) throws IOException {
