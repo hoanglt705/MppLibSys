@@ -16,8 +16,6 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-			//primaryStage.initStyle(StageStyle.TRANSPARENT);
-			
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
