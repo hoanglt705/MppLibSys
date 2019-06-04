@@ -8,7 +8,7 @@ public class CheckoutRecordEntry {
     private Date dueDate;
     CheckoutRecord checkoutRecord;
 
-    
+
     public Date getCheckoutDate() {
         return checkoutDate;
     }
