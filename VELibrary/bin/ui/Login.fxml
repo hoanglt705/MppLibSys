@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="236.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoginController">
+   <children>
+      <BorderPane prefHeight="293.0" prefWidth="495.0" style="-fx-background-color: #fff;">
+         <top>
+            <HBox prefHeight="63.0" prefWidth="495.0" style="-fx-background-color: #DBE2F4;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="69.0" prefWidth="495.0" text="VE Library" textAlignment="CENTER">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField fx:id="userName" layoutX="117.0" layoutY="51.0" prefHeight="27.0" prefWidth="261.0" promptText="User name" />
+                  <JFXPasswordField fx:id="password" layoutX="116.0" layoutY="106.0" prefHeight="27.0" prefWidth="264.0" promptText="Password" />
+                  <JFXButton fx:id="btnLogin" layoutX="114.0" layoutY="160.0" onAction="#loginClick" prefHeight="27.0" prefWidth="124.0" styleClass="login-button" stylesheets="@../application/application.css" text="Login">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/unlocked-padlock.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <JFXButton fx:id="btnCancel" layoutX="256.0" layoutY="160.0" onAction="#cancelClick" prefHeight="27.0" prefWidth="124.0" styleClass="login-button" stylesheets="@../application/application.css" text="Cancel">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/close-button.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

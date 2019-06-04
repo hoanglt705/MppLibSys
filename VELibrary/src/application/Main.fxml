@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.svg.*?>
+<?import de.jensd.fx.fontawesome.test.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <AnchorPane layoutX="-1.0" prefHeight="665.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
+         <children>
+            <Label layoutX="38.0" layoutY="28.0" prefHeight="44.0" prefWidth="231.0" text="VE Library" textAlignment="CENTER" textFill="#31438a">
+               <font>
+                  <Font name="System Font" size="36.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="127.0" layoutY="83.0" startX="-100.0" stroke="#31438a" />
+            <Button fx:id="btnRegisterMember" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="115.0" mnemonicParsing="false" onAction="#registerMember" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Register Member">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ui/add-user-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReturnBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="295.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Return Book">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ui/icons/reply-all-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCheckoutBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="234.0" mnemonicParsing="false" onAction="#checkoutBook" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Checkout Book">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ui/icons/tab-symbol.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnAddBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="176.0" mnemonicParsing="false" onAction="#addBook" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Add Book">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ui/icons/add-to-queue-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReport" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="356.0" mnemonicParsing="false" onAction="#generateReport" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Report">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ui/icons/screen-with-news-sections.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+      <HBox layoutX="-1.0" layoutY="665.0" prefHeight="35.0" prefWidth="1000.0" style="-fx-background-color: DBE2F4;">
+         <children>
+            <Label prefHeight="30.0" prefWidth="108.0" text="Logged in as:" textAlignment="CENTER">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="29.0" prefWidth="206.0" text="Admin" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </HBox>
+      <AnchorPane fx:id="mainScreen" layoutX="268.0" prefHeight="665.0" prefWidth="733.0" style="-fx-background-color: #fff;" />
+   </children>
+   <opaqueInsets>
+      <Insets bottom="1.0" right="1.0" top="1.0" />
+   </opaqueInsets>
+</AnchorPane>

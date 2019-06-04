@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutY="-17.0" prefHeight="672.0" prefWidth="671.0">
+         <top>
+            <AnchorPane prefHeight="74.0" prefWidth="671.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="17.0" prefHeight="60.0" prefWidth="733.0" style="-fx-background-color: #DBE2F4;" text="Add new member" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="First name" />
+                  <JFXTextField layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Last name" />
+                  <JFXTextField layoutX="183.0" layoutY="157.0" prefHeight="39.0" prefWidth="376.0" promptText="Street" />
+                  <JFXTextField layoutX="183.0" layoutY="222.0" prefHeight="39.0" prefWidth="376.0" promptText="City" />
+                  <JFXTextField layoutX="183.0" layoutY="299.0" prefHeight="39.0" prefWidth="376.0" promptText="State" />
+                  <JFXTextField layoutX="183.0" layoutY="365.0" prefHeight="39.0" prefWidth="376.0" promptText="Zip" />
+                  <JFXTextField layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
+                  <JFXButton layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Add Member" />
+                  <JFXButton layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Cancel" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

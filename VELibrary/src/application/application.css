@@ -1,0 +1,18 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.main-menu{
+	-fx-background-color:#F5F6FC;
+}
+.main-menu:hover{
+	-fx-background-color: #dbe2f4;
+	-fx-cursor: hand ;
+}
+
+.login-button:hover{
+	-fx-background-color: #d2d7ef;
+	-fx-cursor: hand ;
+}
+
+.login-button{
+	-fx-background-color:#DBE2F4;
+}
