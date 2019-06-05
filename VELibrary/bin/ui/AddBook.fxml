@@ -16,15 +16,15 @@
                <children>
                   <JFXTextField fx:id="isbn" layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="ISBN" />
                   <JFXTextField layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Title" />
-                  <JFXButton fx:id="btnAddBook" layoutX="254.0" layoutY="511.0" onAction="#addBook" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Add Member" />
-                  <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" onAction="#cancel" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Cancel" />
+                  <JFXButton fx:id="btnAddBook" layoutX="254.0" layoutY="511.0" onAction="#addBook" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" />
+                  <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" onAction="#cancel" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" />
                   <TableView layoutX="43.0" layoutY="188.0" prefHeight="293.0" prefWidth="647.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
                     </columns>
                   </TableView>
-                  <JFXButton fx:id="btnAddAuthor" layoutX="586.0" layoutY="148.0" onAction="#showAddAuthorScreen" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Add Author" />
+                  <JFXButton fx:id="btnAddAuthor" layoutX="586.0" layoutY="148.0" onAction="#showAddAuthorScreen" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
                </children>
             </AnchorPane>
          </center>

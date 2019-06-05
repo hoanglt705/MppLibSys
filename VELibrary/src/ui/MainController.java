@@ -1,17 +1,19 @@
-package application;
+package ui;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-public class MainController  {
+public class MainController {
 
 	@FXML
 	private AnchorPane mainScreen;
@@ -32,37 +34,53 @@ public class MainController  {
 	private Button btnReturnBook;
 
 	@FXML
+	private JFXButton btnLogout;
+
+	@FXML
 	void registerMember(ActionEvent event) throws IOException {
-		displayScreen("../ui/AddMember.fxml");
+		displayScreen("AddMember.fxml");
 	}
 
 	@FXML
 	void returnBook(ActionEvent event) throws IOException {
-		displayScreen("../ui/ReturnBook.fxml");
+		displayScreen("ReturnBook.fxml");
 	}
 
 	@FXML
 	void checkoutBook(ActionEvent event) throws IOException {
-		displayScreen("../ui/CheckoutBook.fxml");
+		displayScreen("CheckoutBook.fxml");
 	}
 
 	@FXML
 	void addBook(ActionEvent event) throws IOException {
-		displayScreen("../ui/AddBook.fxml");
+		displayScreen("AddBook.fxml");
 	}
 
 	@FXML
 	void generateReport(ActionEvent event) throws IOException {
-		displayScreen("../ui/Report.fxml");
+		displayScreen("Report.fxml");
 	}
 
 	public void initialize() {
-    	try {
-			displayScreen("../ui/CheckoutBook.fxml");
+		try {
+			displayScreen("CheckoutBook.fxml");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void logout(ActionEvent event) throws IOException {
+		// validate login...
+		Stage stage = (Stage) btnLogout.getScene().getWindow();
+		stage.close();
+
+		stage = new Stage();
+
+		Parent screen = (Parent) FXMLLoader.load(getClass().getResource("Login.fxml"));
+		stage.setScene(new Scene(screen));
+		stage.show();
 	}
 
 	void displayScreen(String fxmlPath) throws IOException {

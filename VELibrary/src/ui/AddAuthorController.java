@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 public class AddAuthorController {
 
@@ -49,7 +50,8 @@ public class AddAuthorController {
 
     @FXML
     void cancel(ActionEvent event) {
-
+    	Stage stage = (Stage) btnCancel.getScene().getWindow();
+    	stage.close();
     }
 
 }

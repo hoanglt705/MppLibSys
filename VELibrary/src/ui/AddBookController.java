@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class AddBookController {
 
@@ -42,6 +43,7 @@ public class AddBookController {
     	Stage stage = new Stage();
     	
     	Parent root = (Parent) FXMLLoader.load(getClass().getResource("../ui/AddAuthor.fxml"));
+    	stage.initStyle(StageStyle.UTILITY);
     	stage.setScene(new Scene(root));
     	stage.showAndWait();
     }

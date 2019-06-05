@@ -14,12 +14,10 @@ public class Login extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 					
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("../application/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			primaryStage.initStyle(StageStyle.TRANSPARENT);
 		
-			primaryStage.resizableProperty().setValue(Boolean.FALSE);
-
 			primaryStage.setScene(scene);
 		
 			primaryStage.show();

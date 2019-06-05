@@ -36,7 +36,7 @@ public class LoginController {
 		
 		stage = new Stage();
 
-		Parent screen = (Parent) FXMLLoader.load(getClass().getResource("../application/Main.fxml"));
+		Parent screen = (Parent) FXMLLoader.load(getClass().getResource("Main.fxml"));
 		stage.setScene(new Scene(screen));
 		stage.show();
 	}

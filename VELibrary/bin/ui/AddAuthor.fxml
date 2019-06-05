@@ -24,8 +24,8 @@
                         <JFXTextField fx:id="txtPhone" layoutX="57.0" layoutY="292.0" prefHeight="39.0" prefWidth="281.0" promptText="Phone" />
                         <JFXTextField fx:id="txtCredentials" layoutX="403.0" layoutY="293.0" prefHeight="39.0" prefWidth="276.0" promptText="Credentials" />
                         <JFXTextArea fx:id="txtShortBio" layoutX="56.0" layoutY="363.0" prefHeight="72.0" prefWidth="625.0" promptText="Short bio" />
-                        <JFXButton fx:id="btnAddAuthor" layoutX="212.0" layoutY="476.0" onAction="#addAuthor" prefHeight="40.0" prefWidth="135.0" styleClass="login-button" stylesheets="@../application/application.css" text="Add Author" />
-                        <JFXButton fx:id="btnCancel" layoutX="403.0" layoutY="476.0" onAction="#cancel" prefHeight="40.0" prefWidth="135.0" styleClass="login-button" stylesheets="@../application/application.css" text="Cancel" />
+                        <JFXButton fx:id="btnAddAuthor" layoutX="212.0" layoutY="476.0" onAction="#addAuthor" prefHeight="40.0" prefWidth="135.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
+                        <JFXButton fx:id="btnCancel" layoutX="403.0" layoutY="476.0" onAction="#cancel" prefHeight="40.0" prefWidth="135.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" />
                      </children>
                   </AnchorPane>
                </center>

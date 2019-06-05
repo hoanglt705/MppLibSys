@@ -31,8 +31,8 @@
                   <JFXTextField layoutX="183.0" layoutY="299.0" prefHeight="39.0" prefWidth="376.0" promptText="State" />
                   <JFXTextField layoutX="183.0" layoutY="365.0" prefHeight="39.0" prefWidth="376.0" promptText="Zip" />
                   <JFXTextField layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
-                  <JFXButton layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Add Member" />
-                  <JFXButton layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@../application/application.css" text="Cancel" />
+                  <JFXButton layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" />
+                  <JFXButton layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" />
                </children>
             </AnchorPane>
          </center>
