@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import com.jfoenix.svg.*?>
-<?import de.jensd.fx.fontawesome.test.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<<<<<<< HEAD:VELibrary/src/ui/Main.fxml
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
+=======
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+>>>>>>> e6ec4aa179d01f1328ff785f982b54b504694f06:VELibrary/src/application/Main.fxml
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="665.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
          <children>

@@ -186,7 +186,7 @@
 											"top": 99,
 											"width": 119,
 											"height": 13,
-											"text": "-phoneNo: String",
+											"text": "-telephone: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -564,23 +564,6 @@
 									"subViews": [
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAFrIvLED9WIDGc=",
-											"_parent": {
-												"$ref": "AAAAAAFrIt4d5856ur8="
-											},
-											"model": {
-												"$ref": "AAAAAAFrIvLD49WFCf8="
-											},
-											"font": "Arial;13;0",
-											"left": 269,
-											"top": 286,
-											"width": 101.8798828125,
-											"height": 13,
-											"text": "-credential: String",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAFrIvM9wNXjprg=",
 											"_parent": {
 												"$ref": "AAAAAAFrIt4d5856ur8="
@@ -590,10 +573,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 269,
-											"top": 301,
+											"top": 286,
 											"width": 101.8798828125,
 											"height": 13,
-											"text": "-shortBio: String",
+											"text": "-bio: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -601,7 +584,7 @@
 									"left": 264,
 									"top": 281,
 									"width": 111.8798828125,
-									"height": 38
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -614,7 +597,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 264,
-									"top": 319,
+									"top": 304,
 									"width": 111.8798828125,
 									"height": 10
 								},
@@ -805,7 +788,7 @@
 											"top": 477,
 											"width": 170.54248046875,
 											"height": 13,
-											"text": "-ISBN: String",
+											"text": "-isbn: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -962,7 +945,7 @@
 											"top": 695,
 											"width": 157.5615234375,
 											"height": 13,
-											"text": "CopiedBook"
+											"text": "BookCopy"
 										},
 										{
 											"_type": "LabelView",
@@ -1034,7 +1017,7 @@
 											"top": 718,
 											"width": 157.5615234375,
 											"height": 13,
-											"text": "-copiedNo: integer {unique}",
+											"text": "-copyNum: integer {unique}",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3619,7 +3602,7 @@
 											"top": 388,
 											"width": 116.34619140625,
 											"height": 13,
-											"text": "RoleEnum"
+											"text": "Role"
 										},
 										{
 											"_type": "LabelView",
@@ -4542,7 +4525,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFrItyvIs3HqcE="
 							},
-							"name": "phoneNo",
+							"name": "telephone",
 							"visibility": "private",
 							"type": "String"
 						}
@@ -4847,21 +4830,11 @@
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
-							"_id": "AAAAAAFrIvLD49WFCf8=",
-							"_parent": {
-								"$ref": "AAAAAAFrIt4d5s5yeFM="
-							},
-							"name": "credential",
-							"visibility": "private",
-							"type": "String"
-						},
-						{
-							"_type": "UMLAttribute",
 							"_id": "AAAAAAFrIvM9ltXgJH4=",
 							"_parent": {
 								"$ref": "AAAAAAFrIt4d5s5yeFM="
 							},
-							"name": "shortBio",
+							"name": "bio",
 							"visibility": "private",
 							"type": "String"
 						}
@@ -5090,7 +5063,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFrIt5pkM6gaWY="
 							},
-							"name": "ISBN",
+							"name": "isbn",
 							"visibility": "private",
 							"type": "String"
 						},
@@ -5122,7 +5095,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "CopiedBook",
+					"name": "BookCopy",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -5175,7 +5148,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFrIt524M7K/c0="
 							},
-							"name": "copiedNo",
+							"name": "copyNum",
 							"visibility": "private",
 							"type": "integer",
 							"isUnique": true
@@ -5514,7 +5487,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "RoleEnum",
+					"name": "Role",
 					"literals": [
 						{
 							"_type": "UMLEnumerationLiteral",
