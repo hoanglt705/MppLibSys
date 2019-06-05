@@ -11,6 +11,7 @@ import java.util.List;
 
 import domain.Book;
 import domain.Member;
+import domain.User;
 
 
 public class DataAccessFacade implements DataAccess {

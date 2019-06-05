@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import domain.Book;
 import domain.Member;
+import domain.User;
 
 public interface DataAccess { 
 	public HashMap<String, Book> readBooksMap();

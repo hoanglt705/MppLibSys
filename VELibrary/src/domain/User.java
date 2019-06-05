@@ -1,4 +1,4 @@
-package dataaccess;
+package domain;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ final public class User implements Serializable {
 	private String username;
 	private String password;
 	private Role roles;
-	User(String id, String pass, Role auth) {
+	public User(String id, String pass, Role auth) {
 		this.id = id;
 		this.password = pass;
 		this.roles = auth;
