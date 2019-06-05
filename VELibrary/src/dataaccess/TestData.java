@@ -7,9 +7,11 @@ import domain.Member;
 import domain.Role;
 import domain.User;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class TestData {
 	List<Member> members = new ArrayList<Member>();
@@ -71,6 +73,11 @@ public class TestData {
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
 		System.out.println(da.readUserMap());
+
+        UUID uuid = UUID.randomUUID();
+        long l = ByteBuffer.wrap(uuid.toString().getBytes()).getLong();
+        System.out.println(">>" + Long.toString(l, Character.MAX_RADIX));
+
 	}
 	///create books
 	public void bookData() {
@@ -86,9 +93,8 @@ public class TestData {
 	public void userData() {
 		DataAccessFacade.loadUserMap(allUsers);
 	}
-	
-	
-	
+
+
 	//create library members
 	
 	public void libraryMemberData() {

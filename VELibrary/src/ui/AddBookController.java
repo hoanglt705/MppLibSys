@@ -1,10 +1,14 @@
 package ui;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import domain.Address;
+import domain.Author;
+import domain.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +17,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import service.AuthorServiceImpl;
+import service.BookServiceImpl;
+import service.IAuthorService;
+import service.IBookService;
 
 public class AddBookController {
 
@@ -30,6 +38,7 @@ public class AddBookController {
 
     @FXML
     void addBook(ActionEvent event) {
+
 
     }
 

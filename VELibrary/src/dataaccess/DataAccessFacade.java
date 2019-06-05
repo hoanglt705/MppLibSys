@@ -9,7 +9,9 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
+import domain.Author;
 import domain.Book;
 import domain.Member;
 import domain.User;
@@ -18,7 +20,7 @@ import domain.User;
 public class DataAccessFacade implements DataAccess {
 	
 	enum StorageType {
-		BOOKS, MEMBERS, USERS;
+		BOOKS, MEMBERS, USERS, AUTHORS;
 	}
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "//src//dataaccess//storage";
@@ -34,8 +36,30 @@ public class DataAccessFacade implements DataAccess {
 		saveToStorage(StorageType.MEMBERS, mems);
 		return memberId;
 	}
-	
-	@SuppressWarnings("unchecked")
+
+	@Override
+	public Book saveNewBook(Book book) {
+		HashMap<String, Book> books = readBooksMap();
+		books.put(book.getIsbn(),book);
+		saveToStorage(StorageType.BOOKS, books);
+		return book;
+	}
+
+    @Override
+    public Author saveNewAuthor(Author author) {
+        HashMap<String, Author> authors = readAuthorsMap();
+        if(authors == null)
+            authors = new HashMap<String, Author>();
+        Random random = new Random();
+        String authId = Integer.toString(random.nextInt(10000));
+        authors.put(authId, author);
+        saveToStorage(StorageType.AUTHORS, authors);
+
+        return author;
+    }
+
+
+    @SuppressWarnings("unchecked")
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being
 		//   isbn -> Book
@@ -46,11 +70,15 @@ public class DataAccessFacade implements DataAccess {
 	public HashMap<String, Member> readMemberMap() {
 		//Returns a Map with name/value pairs being
 		//   memberId -> Member
-		return (HashMap<String, Member>) readFromStorage(
-				StorageType.MEMBERS);
+		return (HashMap<String, Member>) readFromStorage(StorageType.MEMBERS);
 	}
-	
-	
+
+    @Override
+	public HashMap<String, Author> readAuthorsMap() {
+		return (HashMap<String, Author>) readFromStorage(StorageType.AUTHORS);
+
+	}
+
 	@SuppressWarnings("unchecked")
 	public HashMap<String, User> readUserMap() {
 		//Returns a Map with name/value pairs being

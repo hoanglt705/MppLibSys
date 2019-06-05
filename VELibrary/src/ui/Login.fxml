@@ -30,7 +30,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <JFXTextField fx:id="userName" layoutX="117.0" layoutY="51.0" prefHeight="27.0" prefWidth="261.0" promptText="User name" />
-                  <JFXPasswordField fx:id="password" layoutX="116.0" layoutY="106.0" prefHeight="27.0" prefWidth="264.0" promptText="Password" />
+                  <JFXPasswordField fx:id="password" layoutX="116.0" layoutY="106.0" prefHeight="27.0" prefWidth="264.0" promptText="Password"/>
                   <JFXButton fx:id="btnLogin" layoutX="114.0" layoutY="160.0" onAction="#loginClick" prefHeight="27.0" prefWidth="124.0" styleClass="login-button" stylesheets="@application.css" text="Login">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -50,6 +50,20 @@
                </children>
             </AnchorPane>
          </center>
+         <bottom>
+            <HBox  BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblMessage" textFill="firebrick" alignment="CENTER" prefHeight="69.0" prefWidth="495.0" text="" textAlignment="CENTER">
+                     <font>
+                        <Font/>
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
