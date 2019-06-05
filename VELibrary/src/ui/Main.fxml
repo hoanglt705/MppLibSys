@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="665.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
          <children>
@@ -99,11 +99,12 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label prefHeight="29.0" prefWidth="206.0" text="Admin" textAlignment="CENTER">
+            <Label prefHeight="29.0" prefWidth="771.0" text="Admin" textAlignment="CENTER">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
+            <JFXButton fx:id="btnLogout" onAction="#logout" prefHeight="27.0" prefWidth="107.0" styleClass="login-button" text="Logout" />
          </children>
          <padding>
             <Insets top="5.0" />
