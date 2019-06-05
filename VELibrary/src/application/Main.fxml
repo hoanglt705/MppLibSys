@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<<<<<<< HEAD:VELibrary/src/ui/Main.fxml
-
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
-=======
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Line?>
+<?import com.jfoenix.svg.*?>
+<?import de.jensd.fx.fontawesome.test.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
->>>>>>> e6ec4aa179d01f1328ff785f982b54b504694f06:VELibrary/src/application/Main.fxml
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="665.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
          <children>
@@ -38,7 +38,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ui/icons/add-user-button.png" />
+                        <Image url="@../ui/add-user-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -99,12 +99,11 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label prefHeight="29.0" prefWidth="808.0" text="Admin" textAlignment="CENTER">
+            <Label prefHeight="29.0" prefWidth="206.0" text="Admin" textAlignment="CENTER">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnLogout" alignment="BASELINE_CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" onAction="#logout" prefHeight="27.0" prefWidth="85.0" styleClass="login-button" text="Logout" />
          </children>
          <padding>
             <Insets top="5.0" />

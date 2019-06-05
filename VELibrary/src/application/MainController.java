@@ -1,4 +1,4 @@
-package ui;
+package application;
 
 import java.io.IOException;
 
@@ -38,32 +38,32 @@ public class MainController {
 
 	@FXML
 	void registerMember(ActionEvent event) throws IOException {
-		displayScreen("AddMember.fxml");
+		displayScreen("../ui/AddMember.fxml");
 	}
 
 	@FXML
 	void returnBook(ActionEvent event) throws IOException {
-		displayScreen("ReturnBook.fxml");
+		displayScreen("../ui/ReturnBook.fxml");
 	}
 
 	@FXML
 	void checkoutBook(ActionEvent event) throws IOException {
-		displayScreen("CheckoutBook.fxml");
+		displayScreen("../ui/CheckoutBook.fxml");
 	}
 
 	@FXML
 	void addBook(ActionEvent event) throws IOException {
-		displayScreen("AddBook.fxml");
+		displayScreen("../ui/AddBook.fxml");
 	}
 
 	@FXML
 	void generateReport(ActionEvent event) throws IOException {
-		displayScreen("Report.fxml");
+		displayScreen("../ui/Report.fxml");
 	}
 
 	public void initialize() {
 		try {
-			displayScreen("CheckoutBook.fxml");
+			displayScreen("../ui/CheckoutBook.fxml");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
