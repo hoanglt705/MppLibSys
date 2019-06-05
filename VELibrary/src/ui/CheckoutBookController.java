@@ -5,6 +5,8 @@ import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import context.AppContext;
+import domain.CheckoutRecord;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,8 +32,18 @@ public class CheckoutBookController {
 
 	@FXML
 	void addBookDetail(ActionEvent event) throws IOException {
-		Stage stage = new Stage();
+		createCheckoutRecord();
+		showCheckoutBookDetail();
+	}
 
+	private void createCheckoutRecord() {
+		String memberId = txtMemberId.getText();
+		CheckoutRecord checkoutRecord = new CheckoutRecord(memberId);
+		AppContext.getInstance().setCheckoutRecord(checkoutRecord);
+	}
+
+	private void showCheckoutBookDetail() throws IOException {
+		Stage stage = new Stage();
 		Parent root = (Parent) FXMLLoader.load(getClass().getResource("../ui/CheckoutBookDetail.fxml"));
 		stage.setScene(new Scene(root));
 		stage.showAndWait();

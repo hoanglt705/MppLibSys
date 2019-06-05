@@ -16,6 +16,6 @@ public interface DataAccess {
 	public Author saveNewAuthor(Author author);
 	public String saveNewMember(Member member);
 	public Book saveNewBook(Book book);
-
-	
+	public boolean existMember(String memberId);
+	public Book findBook(String isbn);
 }

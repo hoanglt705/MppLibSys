@@ -1,5 +1,6 @@
 package context;
 
+import domain.CheckoutRecord;
 import domain.User;
 
 public class AppContext  {
@@ -7,6 +8,8 @@ public class AppContext  {
     private static AppContext single_instance = null;
 
     public User user;
+
+	private CheckoutRecord checkoutRecord;
 
     private AppContext()
     {
@@ -20,4 +23,9 @@ public class AppContext  {
 
         return single_instance;
     }
+
+	public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
+		this.checkoutRecord = checkoutRecord;
+		
+	}
 }

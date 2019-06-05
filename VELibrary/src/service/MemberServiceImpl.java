@@ -8,8 +8,16 @@ import domain.Member;
 public class MemberServiceImpl implements IMemberService {
 	@Override
 	public String createMember(Member member, Address address) {
-		DataAccess dataAccess = new DataAccessFacade();
 		member.setAddress(address);
-		return dataAccess.saveNewMember(member);
+		return getDataAccess().saveNewMember(member);
+	}
+
+	@Override
+	public boolean exist(String memberId) {
+		return getDataAccess().existMember(memberId);
+	}
+	
+	private DataAccess getDataAccess() {
+		return new DataAccessFacade();
 	}
 }

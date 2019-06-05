@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 import domain.Author;
 import domain.Book;
@@ -166,6 +165,16 @@ public class DataAccessFacade implements DataAccess {
 			return "(" + first.toString() + ", " + second.toString() + ")";
 		}
 		private static final long serialVersionUID = 5399827794066637059L;
+	}
+
+	@Override
+	public boolean existMember(String memberId) {
+		return readMemberMap().containsKey(memberId);
+	}
+
+	@Override
+	public Book findBook(String isbn) {
+		return readBooksMap().get(isbn);
 	}
 	
 }

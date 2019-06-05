@@ -14,4 +14,10 @@ public class BookServiceImpl implements IBookService {
         dataaccess.saveNewBook(book);
         return book;
     }
+
+	@Override
+	public Book find(String isbn) {
+		DataAccess dataAccess = new DataAccessFacade();
+		return dataAccess.findBook(isbn);
+	}
 }
