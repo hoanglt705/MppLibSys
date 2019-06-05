@@ -38,7 +38,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ui/add-user-button.png" />
+                        <Image url="@../ui/icons/add-user-button.png" />
                      </image>
                   </ImageView>
                </graphic>

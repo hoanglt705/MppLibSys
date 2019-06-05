@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController {
 
@@ -38,6 +39,8 @@ public class LoginController {
 
 		Parent screen = (Parent) FXMLLoader.load(getClass().getResource("Main.fxml"));
 		stage.setScene(new Scene(screen));
+
+		stage.setResizable(false);
 		stage.show();
 	}
 
