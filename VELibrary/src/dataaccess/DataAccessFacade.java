@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import domain.Book;
 import domain.Member;
@@ -24,11 +25,14 @@ public class DataAccessFacade implements DataAccess {
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
 	//implement: other save operations
-	public void saveNewMember(Member member) {
+	@Override
+	public String saveNewMember(Member member) {
 		HashMap<String, Member> mems = readMemberMap();
-		String memberId = member.getMemberId();
+		Random random = new Random();
+		String memberId = Integer.toString(random.nextInt(10000));
 		mems.put(memberId, member);
-		saveToStorage(StorageType.MEMBERS, mems);	
+		saveToStorage(StorageType.MEMBERS, mems);
+		return memberId;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -77,19 +81,12 @@ public class DataAccessFacade implements DataAccess {
 	}
 	
 	static void saveToStorage(StorageType type, Object ob) {
-		ObjectOutputStream out = null;
-		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
-			out = new ObjectOutputStream(Files.newOutputStream(path));
+		Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
+		try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(path))){
+			
 			out.writeObject(ob);
 		} catch(IOException e) {
 			e.printStackTrace();
-		} finally {
-			if(out != null) {
-				try {
-					out.close();
-				} catch(Exception e) {}
-			}
 		}
 	}
 	

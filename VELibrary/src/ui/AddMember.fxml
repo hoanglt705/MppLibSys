@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AddMemberController">
    <children>
       <BorderPane layoutY="-17.0" prefHeight="672.0" prefWidth="671.0">
          <top>
@@ -24,15 +24,15 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTextField layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="First name" />
-                  <JFXTextField layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Last name" />
-                  <JFXTextField layoutX="183.0" layoutY="157.0" prefHeight="39.0" prefWidth="376.0" promptText="Street" />
-                  <JFXTextField layoutX="183.0" layoutY="222.0" prefHeight="39.0" prefWidth="376.0" promptText="City" />
-                  <JFXTextField layoutX="183.0" layoutY="299.0" prefHeight="39.0" prefWidth="376.0" promptText="State" />
-                  <JFXTextField layoutX="183.0" layoutY="365.0" prefHeight="39.0" prefWidth="376.0" promptText="Zip" />
-                  <JFXTextField layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
-                  <JFXButton layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" />
-                  <JFXButton layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" />
+                  <JFXTextField fx:id="txtFirstName" layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="First name" />
+                  <JFXTextField fx:id="txtLastName" layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Last name" />
+                  <JFXTextField fx:id="txtStreet" layoutX="183.0" layoutY="157.0" prefHeight="39.0" prefWidth="376.0" promptText="Street" />
+                  <JFXTextField fx:id="txtCity" layoutX="183.0" layoutY="222.0" prefHeight="39.0" prefWidth="376.0" promptText="City" />
+                  <JFXTextField fx:id="txtState" layoutX="183.0" layoutY="299.0" prefHeight="39.0" prefWidth="376.0" promptText="State" />
+                  <JFXTextField fx:id="txtZip" layoutX="183.0" layoutY="365.0" prefHeight="39.0" prefWidth="376.0" promptText="Zip" />
+                  <JFXTextField fx:id="txtPhone" layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
+                  <JFXButton fx:id="btnAdd" layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" onAction="#addMember"/>
+                  <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" onAction="#cancel"/>
                </children>
             </AnchorPane>
          </center>
