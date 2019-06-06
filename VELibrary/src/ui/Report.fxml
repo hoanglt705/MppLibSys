@@ -36,8 +36,8 @@
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
-                        <Button fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
+                        <JFXTextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
+                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
                      </children></AnchorPane>
             </content>
           </Tab>
