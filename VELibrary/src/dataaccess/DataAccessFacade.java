@@ -32,6 +32,7 @@ public class DataAccessFacade implements DataAccess {
         if(mems == null) mems = new HashMap<>();
 		Random random = new Random();
 		String memberId = Integer.toString(random.nextInt(10000));
+		member.setMemberId(memberId);
 		mems.put(memberId, member);
 		saveToStorage(StorageType.MEMBERS, mems);
 		return memberId;

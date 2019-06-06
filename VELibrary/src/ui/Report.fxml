@@ -26,19 +26,52 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="tblOverdue" text="Overdue">
+          <Tab fx:id="tblOverdue" disable="true" text="Overdue">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="12.0" prefHeight="488.0" prefWidth="712.0">
+                        <TableView layoutX="14.0" layoutY="62.0" prefHeight="438.0" prefWidth="712.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
+                        <TextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
+                        <Button fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
                      </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="Member List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblMemberList" layoutX="22.0" layoutY="30.0" prefHeight="412.0" prefWidth="699.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="106.0" text="Id" />
+                            <TableColumn fx:id="colFirstname" prefWidth="195.0" text="First name" />
+                              <TableColumn fx:id="colLastName" prefWidth="201.0" text="Last name" />
+                              <TableColumn fx:id="colPhoneNumber" prefWidth="196.0" text="Telephone" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Book List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblBookList" layoutX="11.0" layoutY="13.0" prefHeight="484.0" prefWidth="701.0">
+                          <columns>
+                            <TableColumn fx:id="colISBN" prefWidth="75.0" text="ISBN" />
+                            <TableColumn fx:id="colTitle" prefWidth="365.0" text="Title" />
+                              <TableColumn fx:id="colLoanPeriod" minWidth="0.0" prefWidth="138.0" text="Loan Period" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

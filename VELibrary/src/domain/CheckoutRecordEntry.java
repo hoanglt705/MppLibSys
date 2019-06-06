@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CheckoutRecordEntry implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private Date checkoutDate;
 	private Date dueDate;
