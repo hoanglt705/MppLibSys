@@ -31,7 +31,7 @@ import service.IBookService;
 import service.ICheckoutService;
 
 public class CheckoutBookDetailController implements Initializable {
-	IBookService bookService = new BookServiceImpl();
+	private IBookService bookService = new BookServiceImpl();
 	private ObservableList<BookDetail> data;
 
 	@FXML
@@ -68,6 +68,14 @@ public class CheckoutBookDetailController implements Initializable {
 		data.stream().forEach(this::checkout);
 		CheckoutRecord checkoutRecord = AppContext.getInstance().getCheckoutRecord();
 		ICheckoutService checkoutService = new CheckoutService();
+		if(checkoutRecord.getCheckoutRecords().isEmpty())
+		{
+			Alert a = new Alert(AlertType.WARNING);
+	    	a.setHeaderText("There is no available book");
+	    	a.showAndWait();
+	    	clear();
+	    	return;
+		}
 		checkoutService.save(checkoutRecord);
 		
 		Alert a = new Alert(AlertType.INFORMATION);
@@ -87,6 +95,7 @@ public class CheckoutBookDetailController implements Initializable {
 		boolean available = bookService.available(isbn);
 		if(!available) {
 			//TODO show error here, maybe dead code
+			return;
 		}
 		int maxCheckoutLength = bookService.getMaxCheckoutLength(isbn);
 		Calendar calendar = Calendar.getInstance();

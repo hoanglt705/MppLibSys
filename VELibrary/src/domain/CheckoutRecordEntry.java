@@ -1,8 +1,9 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CheckoutRecordEntry {
+public class CheckoutRecordEntry implements Serializable {
 	private String id;
 	private Date checkoutDate;
 	private Date dueDate;

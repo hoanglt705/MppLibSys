@@ -6,10 +6,13 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import domain.Author;
 import domain.Book;
@@ -74,13 +77,14 @@ public class DataAccessFacade implements DataAccess {
 		//   memberId -> Member
 		return (HashMap<String, Member>) readFromStorage(StorageType.MEMBERS);
 	}
-
+	
     @Override
 	public HashMap<String, Author> readAuthorsMap() {
 		return (HashMap<String, Author>) readFromStorage(StorageType.AUTHORS);
 
 	}
 
+    @Override
 	public HashMap<String, CheckoutRecord> readCheckoutRecordMap() {
 		return (HashMap<String, CheckoutRecord>) readFromStorage(StorageType.CHECKOUT_RECORD);
 
@@ -199,7 +203,9 @@ public class DataAccessFacade implements DataAccess {
 
 	@Override
 	public BookCopy findCopy(String isbn) {
-		return readBooksMap().get(isbn).getCopies().stream().filter(BookCopy::isAvailable).findFirst().get();
+		Optional<BookCopy> bookCopy = readBooksMap().get(isbn).getCopies().stream().filter(BookCopy::isAvailable).findFirst();
+		boolean existed = bookCopy.isPresent();
+		return existed ? bookCopy.get() : null;
 	}
 
 
@@ -220,6 +226,7 @@ public class DataAccessFacade implements DataAccess {
 		HashMap<String, CheckoutRecord> records = readCheckoutRecordMap();
 		Random random = new Random();
 		String checkoutRecordId = Integer.toString(random.nextInt(10000));
+		checkoutRecord.setId(checkoutRecordId);
 		records.put(checkoutRecordId, checkoutRecord);
 		saveToStorage(StorageType.CHECKOUT_RECORD, records);
 	}
@@ -229,6 +236,13 @@ public class DataAccessFacade implements DataAccess {
 		HashMap<String, Book> books = readBooksMap();
 		books.put(book.getIsbn(),book);
 		saveToStorage(StorageType.BOOKS, books);
+	}
+
+	@Override
+	public List<CheckoutRecord> findAllCheckoutRecord(String memberId) {
+		// TODO Auto-generated method stub
+		return readCheckoutRecordMap().values().stream()
+				.filter(checkoutRecord -> checkoutRecord.getMemberId().equals(memberId)).collect(Collectors.toList());
 	}
 	
 }

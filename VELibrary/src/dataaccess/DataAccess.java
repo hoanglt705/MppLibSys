@@ -1,12 +1,12 @@
 package dataaccess;
 
 import java.util.HashMap;
+import java.util.List;
 
 import domain.Author;
 import domain.Book;
 import domain.BookCopy;
 import domain.CheckoutRecord;
-import domain.CheckoutRecordEntry;
 import domain.Member;
 import domain.User;
 
@@ -27,4 +27,6 @@ public interface DataAccess {
 	public void setBookCopyAvailable(BookCopy book, boolean b);
 	public void saveCheckoutRecord(CheckoutRecord checkoutRecord);
 	public void saveBook(Book bookCopy);
+	public List<CheckoutRecord> findAllCheckoutRecord(String memberId);
+	HashMap<String, CheckoutRecord> readCheckoutRecordMap();
 }

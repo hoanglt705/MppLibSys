@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import domain.Book;
@@ -19,6 +21,11 @@ public class CheckoutService implements ICheckoutService {
 			Book book = bookCopy.getBook();
 			bookService.saveBook(book);
 		});
+	}
+
+	@Override
+	public List<CheckoutRecord> findAll(String memberId) {
+		return dataAccess.findAllCheckoutRecord(memberId);
 	}
 
 }

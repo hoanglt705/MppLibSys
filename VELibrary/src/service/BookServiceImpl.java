@@ -1,7 +1,5 @@
 package service;
 
-import java.util.Date;
-
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import domain.Book;
@@ -46,8 +44,15 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public void saveBook(Book bookCopy) {
-		dataaccess.saveBook(bookCopy);
+	public void saveBook(Book book) {
+		dataaccess.saveBook(book);
 		
+	}
+
+	@Override
+	public void addBookCopy(String isbn) {
+		Book book = find(isbn);
+		book.addCopy();
+		saveBook(book);
 	}
 }
