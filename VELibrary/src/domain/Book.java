@@ -18,13 +18,23 @@ final public class Book implements Serializable {
 		this.isbn = isbn;
 		this.title = title;
 		this.maxCheckoutLength = maxCheckoutLength;
-		this.authors = Collections.unmodifiableList(authors);
 		this.copies = new ArrayList<BookCopy>();
 		this.copies.add(new BookCopy(this, 1, true));
+		this.authors = authors;
+
+	}
+
+	public boolean isAvailable() {
+		if(copies == null) {
+            this.authors = Collections.unmodifiableList(authors);
+            this.copies = new ArrayList<BookCopy>();
+            this.copies.add(new BookCopy(this, 1, true));
+        }
+        return true;
 	}
 
 	public List<Integer> getCopyNums() {
-		List<Integer> retVal = new ArrayList<Integer>();
+		List<Integer> retVal = new ArrayList<>();
 		for (BookCopy c : copies) {
 			retVal.add(c.getCopyNum());
 		}

@@ -4,9 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import context.AppContext;
 import domain.Author;
-import domain.Book;
-import domain.Person;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,16 +16,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.AuthorServiceImpl;
-import service.BookServiceImpl;
 import service.IAuthorService;
-import service.IBookService;
 
-import java.applet.AppletContext;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.ServiceConfigurationError;
 
 public class SelectAuthorController implements Initializable {
 
