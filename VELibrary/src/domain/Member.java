@@ -13,6 +13,7 @@ final public class Member extends Person implements Serializable {
 
 	public Member(String memberId, String firstName, String lastName, String telephone, Address address) {
 		this(firstName, lastName, telephone, address);
+		this.memberId = memberId;
 	}
 
 	public String getMemberId() {
