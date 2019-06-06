@@ -51,7 +51,8 @@ public class AddMemberController {
     	Member member = new Member(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), address);
     	IMemberService service = new MemberServiceImpl();
     	String memberId = service.createMember(member, address);
-    	Alert a = new Alert(AlertType.INFORMATION);
+
+        Alert a = new Alert(AlertType.INFORMATION);
     	a.setHeaderText(String.format("Member id is %s", memberId));
     	a.setContentText("Please provide this id to student");
     	a.setAlertType(AlertType.INFORMATION);

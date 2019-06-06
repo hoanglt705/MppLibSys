@@ -1,5 +1,9 @@
-/application/
-/ui/
 /dataaccess/
+/ui/
+<<<<<<< HEAD
+/dataaccess/
+=======
+/context/
+>>>>>>> 37dbe6e38a6ac07b503ac9bc1b614bb4a7ba30b2
 /domain/
 /service/
