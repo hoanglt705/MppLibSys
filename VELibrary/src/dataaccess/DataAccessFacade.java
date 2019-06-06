@@ -1,4 +1,5 @@
 package dataaccess;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -6,22 +7,13 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
-import java.util.*;
 import java.util.stream.Collectors;
-
-import domain.Author;
-import domain.Book;
-import domain.BookCopy;
-import domain.CheckoutRecord;
-import domain.CheckoutRecordEntry;
-import domain.Member;
-import domain.User;
+import domain.*;
 
 
 public class DataAccessFacade implements DataAccess {

@@ -2,7 +2,6 @@ package service;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
-import domain.Author;
 import domain.Book;
 import domain.BookCopy;
 

@@ -3,12 +3,7 @@ package dataaccess;
 import java.util.HashMap;
 import java.util.List;
 
-import domain.Author;
-import domain.Book;
-import domain.BookCopy;
-import domain.CheckoutRecord;
-import domain.Member;
-import domain.User;
+import domain.*;
 
 public interface DataAccess { 
 	public HashMap<String, Book> readBooksMap();
