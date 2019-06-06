@@ -20,15 +20,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.BookServiceImpl;
-import service.CheckoutService;
 import service.IBookService;
-import service.ICheckoutService;
 
 public class CheckoutBookDetailController implements Initializable {
 	private IBookService bookService = new BookServiceImpl();
@@ -67,7 +65,6 @@ public class CheckoutBookDetailController implements Initializable {
 	void checkout(ActionEvent event) {
 		data.stream().forEach(this::checkout);
 		CheckoutRecord checkoutRecord = AppContext.getInstance().getCheckoutRecord();
-		ICheckoutService checkoutService = new CheckoutService();
 		if(checkoutRecord.getCheckoutRecords().isEmpty())
 		{
 			Alert a = new Alert(AlertType.WARNING);
@@ -76,7 +73,6 @@ public class CheckoutBookDetailController implements Initializable {
 	    	clear();
 	    	return;
 		}
-		checkoutService.save(checkoutRecord);
 		
 		Alert a = new Alert(AlertType.INFORMATION);
     	a.setHeaderText("Checkout successfully");
