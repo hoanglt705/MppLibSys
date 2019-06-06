@@ -1,16 +1,21 @@
 package service;
 
+import java.util.Date;
+
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import domain.Book;
+import domain.BookCopy;
 
 /**
  * Created by haupham on 6/5/19.
  */
 public class BookServiceImpl implements IBookService {
-    @Override
+
+	private DataAccess dataaccess = new DataAccessFacade();
+    
+	@Override
     public Book addNewBook(Book book) {
-        DataAccess dataaccess = new DataAccessFacade();
         dataaccess.saveNewBook(book);
         return book;
     }
@@ -19,5 +24,30 @@ public class BookServiceImpl implements IBookService {
 	public Book find(String isbn) {
 		DataAccess dataAccess = new DataAccessFacade();
 		return dataAccess.findBook(isbn);
+	}
+
+	@Override
+	public boolean available(String isbn) {
+		if(!dataaccess.existBook(isbn)) {
+			return false;
+		}
+		
+		return dataaccess.hasAvailableBookCopy(isbn);
+	}
+
+	@Override
+	public int getMaxCheckoutLength(String isbn) {
+		return dataaccess.findBook(isbn).getMaxCheckoutLength();
+	}
+
+	@Override
+	public BookCopy findCopy(String isbn) {
+		return dataaccess.findCopy(isbn);
+	}
+
+	@Override
+	public void saveBook(Book bookCopy) {
+		dataaccess.saveBook(bookCopy);
+		
 	}
 }

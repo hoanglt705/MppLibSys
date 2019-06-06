@@ -1,27 +1,37 @@
 package ui;
 
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import context.AppContext;
 import domain.Book;
+import domain.BookCopy;
+import domain.CheckoutRecord;
+import domain.CheckoutRecordEntry;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.BookServiceImpl;
+import service.CheckoutService;
 import service.IBookService;
+import service.ICheckoutService;
 
 public class CheckoutBookDetailController implements Initializable {
-
+	IBookService bookService = new BookServiceImpl();
 	private ObservableList<BookDetail> data;
 
 	@FXML
@@ -48,7 +58,6 @@ public class CheckoutBookDetailController implements Initializable {
 	@FXML
 	void addToList(ActionEvent event) {
 		String bookId = txtBookId.getText();
-		IBookService bookService = new BookServiceImpl();
 		Book book = bookService.find(bookId);
 		data.add(new BookDetail(bookId, book.getTitle()));
 		txtBookId.clear();
@@ -56,13 +65,40 @@ public class CheckoutBookDetailController implements Initializable {
 
 	@FXML
 	void checkout(ActionEvent event) {
-		data.stream().forEach(bookDetail -> {
-			
-		});
+		data.stream().forEach(this::checkout);
+		CheckoutRecord checkoutRecord = AppContext.getInstance().getCheckoutRecord();
+		ICheckoutService checkoutService = new CheckoutService();
+		checkoutService.save(checkoutRecord);
+		
+		Alert a = new Alert(AlertType.INFORMATION);
+    	a.setHeaderText("Checkout successfully");
+    	a.setAlertType(AlertType.INFORMATION);
+    	a.showAndWait();
+    	clear();
 	}
 	
+	private void clear() {
+		data.clear();
+		txtBookId.clear();
+	}
+
 	void checkout(BookDetail detail) {
+		String isbn = detail.getIsbn();
+		boolean available = bookService.available(isbn);
+		if(!available) {
+			//TODO show error here, maybe dead code
+		}
+		int maxCheckoutLength = bookService.getMaxCheckoutLength(isbn);
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, maxCheckoutLength);
+		Date dueDate = calendar.getTime();
+		Date checkoutDate = new Date();
+		CheckoutRecord checkoutRecord = AppContext.getInstance().getCheckoutRecord();
 		
+		BookCopy bookCopy = bookService.findCopy(isbn);
+		
+		CheckoutRecordEntry recordEntry = new CheckoutRecordEntry(checkoutRecord, bookCopy, checkoutDate, dueDate);
+		checkoutRecord.addCheckoutRecordEntry(recordEntry);
 	}
 	
 	@Override
