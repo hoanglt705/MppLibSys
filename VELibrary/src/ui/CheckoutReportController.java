@@ -60,6 +60,11 @@ public class CheckoutReportController implements Initializable{
 	@FXML
 	TableColumn<BookDetail, String> colLoanPeriod;
 	
+	@FXML
+	TableColumn<BookDetail, String> colCopyNum;
+	
+	@FXML
+	TableColumn<BookDetail, String> colAvailableNum;
 	
 	@FXML
 	private TableView<MemberDetail> tblMemberList;
@@ -160,10 +165,14 @@ public class CheckoutReportController implements Initializable{
 		colISBN.setCellValueFactory(new PropertyValueFactory<>("Isbn"));
 		colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
 		colLoanPeriod.setCellValueFactory(new PropertyValueFactory<>("LoanPeriod"));
+		colCopyNum.setCellValueFactory(new PropertyValueFactory<>("CopyNum"));
+		colAvailableNum.setCellValueFactory(new PropertyValueFactory<>("AvailableNum"));
 		IBookService bookService = new BookServiceImpl();
 		List<Book> books = bookService.listAllBook();
-		List<BookDetail> bookDetails = books.stream().map(book-> {
-			return new BookDetail(book.getIsbn(), book.getTitle(), book.getMaxCheckoutLength());
+		List<BookDetail> bookDetails = books.stream().map(book -> {
+			long availableNum = bookService.countAvailable(book.getIsbn());
+			return new BookDetail(book.getIsbn(), book.getTitle(), book.getMaxCheckoutLength(), book.getCopies().size(),
+					Long.valueOf(availableNum).intValue());
 		}).collect(Collectors.toList());
 		ObservableList<BookDetail> data = FXCollections.observableArrayList();
 		data.addAll(bookDetails);
@@ -197,11 +206,15 @@ public class CheckoutReportController implements Initializable{
 		private final SimpleStringProperty isbn;
 		private final SimpleStringProperty title;
 		private final SimpleIntegerProperty loanPeriod;
+		private final SimpleIntegerProperty copyNum;
+		private final SimpleIntegerProperty availableNum;
 
-		private BookDetail(String isbn, String title, int loanPeriod) {
+		private BookDetail(String isbn, String title, int loanPeriod, int copyNum, int availableNum) {
 			this.isbn = new SimpleStringProperty(isbn);
 			this.title = new SimpleStringProperty(title);
 			this.loanPeriod = new SimpleIntegerProperty(loanPeriod);
+			this.copyNum = new SimpleIntegerProperty(copyNum);
+			this.availableNum = new SimpleIntegerProperty(availableNum);
 		}
 
 		public String getIsbn() {
@@ -215,6 +228,16 @@ public class CheckoutReportController implements Initializable{
 		public int getLoanPeriod() {
 			return loanPeriod.get();
 		}
+
+		public int getCopyNum() {
+			return copyNum.get();
+		}
+
+		public int getAvailableNum() {
+			return availableNum.get();
+		}
+		
+		
 	}
 	
 	public static class MemberDetail {

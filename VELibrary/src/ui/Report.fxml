@@ -22,7 +22,7 @@
                      <children>
                         <JFXTextField fx:id="txtMemberId" layoutX="115.0" layoutY="39.0" promptText="Member id" />
                         <JFXButton fx:id="btnPrint" layoutX="281.0" layoutY="39.0" mnemonicParsing="false" onAction="#print" text="Print" />
-                        <Label fx:id="lblConsole" layoutX="14.0" layoutY="90.0" prefHeight="412.0" prefWidth="560.0" style="-fx-background-color: #fff;" />
+                        <Label fx:id="lblConsole" alignment="TOP_LEFT" layoutX="14.0" layoutY="90.0" prefHeight="412.0" prefWidth="560.0" style="-fx-background-color: #fff;" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -64,8 +64,10 @@
                         <TableView fx:id="tblBookList" layoutX="11.0" layoutY="13.0" prefHeight="484.0" prefWidth="701.0">
                           <columns>
                             <TableColumn fx:id="colISBN" prefWidth="75.0" text="ISBN" />
-                            <TableColumn fx:id="colTitle" prefWidth="365.0" text="Title" />
-                              <TableColumn fx:id="colLoanPeriod" minWidth="0.0" prefWidth="138.0" text="Loan Period" />
+                            <TableColumn fx:id="colTitle" prefWidth="281.0" text="Title" />
+                              <TableColumn fx:id="colLoanPeriod" minWidth="0.0" prefWidth="114.0" text="Loan Period" />
+                              <TableColumn fx:id="colCopyNum" prefWidth="127.0" text="Copy Total" />
+                              <TableColumn fx:id="colAvailableNum" prefWidth="101.0" text="Available Total " />
                           </columns>
                         </TableView>
                      </children>

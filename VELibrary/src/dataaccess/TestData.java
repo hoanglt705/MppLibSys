@@ -1,9 +1,11 @@
 package dataaccess;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 import domain.Address;
 import domain.Author;
@@ -64,25 +66,25 @@ public class TestData {
 		}
 	};
 	
-//	public static void main(String[] args) {
-//		TestData td = new TestData();
-//		td.bookData();
-//		td.libraryMemberData();
-//		td.userData();
-//		td.checkoutRecordEntry();
-//		DataAccess da = new DataAccessFacade();
-//		System.out.println(da.readBooksMap());
-//		System.out.println(da.readUserMap());
-//
-//        UUID uuid = UUID.randomUUID();
-//        long l = ByteBuffer.wrap(uuid.toString().getBytes()).getLong();
-//        System.out.println(">>" + Long.toString(l, Character.MAX_RADIX));
-//
-//	}
-	
 	public static void main(String[] args) {
-		DataAccessFacade.loadCheckoutRecord(Collections.emptyList());
+		TestData td = new TestData();
+		td.bookData();
+		td.libraryMemberData();
+		td.userData();
+		td.checkoutRecordEntry();
+		DataAccess da = new DataAccessFacade();
+		System.out.println(da.readBooksMap());
+		System.out.println(da.readUserMap());
+
+        UUID uuid = UUID.randomUUID();
+        long l = ByteBuffer.wrap(uuid.toString().getBytes()).getLong();
+        System.out.println(">>" + Long.toString(l, Character.MAX_RADIX));
+
 	}
+	
+//	public static void main(String[] args) {
+//		DataAccessFacade.loadCheckoutRecord(Collections.emptyList());
+//	}
 	
 	private void checkoutRecordEntry() {
 		DataAccessFacade.loadCheckoutRecord(Collections.emptyList());
