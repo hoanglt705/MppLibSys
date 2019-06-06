@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import context.AppContext;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import domain.*;
 
 public class MainController implements Initializable{
 
@@ -47,6 +49,9 @@ public class MainController implements Initializable{
 	
 	@FXML
 	private Button btnAddCopyBook;
+
+    @FXML
+    private Button btnAddAuthor;
 
 	@FXML
 	private JFXButton btnLogout;
@@ -97,7 +102,34 @@ public class MainController implements Initializable{
 			e.printStackTrace();
 		}
         AppContext context = AppContext.getInstance();
-        lblCurUsr.setText(context.getUser().getId() + " [" + context.getUser().getRoles() +"]" );
+        User user = context.getUser() == null ? new User() : context.getUser();
+
+        lblCurUsr.setText(user.getId() + " [" + context.getUser().getRoles() +"]" );
+        if(Role.ADMIN.equals(user.getRoles())){
+            btnRegisterMember.setDisable(true);
+            btnAddBook.setDisable(false);
+            btnCheckoutBook.setDisable(true);
+            btnReturnBook.setDisable(true);
+            btnReport.setDisable(true);
+            btnAddCopyBook.setDisable(false);
+            btnAddAuthor.setDisable(false);
+        }else if(Role.LIBRARIAN.equals(user.getRoles())){
+            btnRegisterMember.setDisable(false);
+            btnAddBook.setDisable(true);
+            btnCheckoutBook.setDisable(false);
+            btnReturnBook.setDisable(false);
+            btnReport.setDisable(false);
+            btnAddCopyBook.setDisable(true);
+            btnAddAuthor.setDisable(true);
+        }else if(Role.BOTH.equals(user.getRoles())){
+            btnRegisterMember.setDisable(false);
+            btnAddBook.setDisable(false);
+            btnCheckoutBook.setDisable(false);
+            btnReturnBook.setDisable(false);
+            btnReport.setDisable(false);
+            btnAddCopyBook.setDisable(false);
+            btnAddAuthor.setDisable(false);
+        }
 	}
 
 	@FXML

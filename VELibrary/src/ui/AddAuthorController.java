@@ -27,8 +27,6 @@ public class AddAuthorController {
     @FXML
     private JFXTextField txtCredentials;
 
-    @FXML
-    private JFXButton btnCancel;
 
     @FXML
     private JFXTextField txtZip;
@@ -59,24 +57,26 @@ public class AddAuthorController {
         Author newAuthor = service.createNewAuthor(author, address);
 
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText(String.format("Author %s", newAuthor.getFirstName()));
-            a.setContentText("Please provide this id to student");
+            a.setHeaderText(String.format("Author %s", newAuthor.getFirstName() + " is added successfully!"));
             a.setAlertType(Alert.AlertType.INFORMATION);
 
         Optional<ButtonType> alert = a.showAndWait();
             if(alert.get() == ButtonType.OK){
-                System.out.println("Lam gi lam");
-            }else{
-                System.out.println("KM");
+                clear();
             }
-
     }
 
-    @FXML
-    void cancel(ActionEvent event) {
-    	Stage stage = (Stage) btnCancel.getScene().getWindow();
-    	stage.close();
+    private void clear(){
+        txtFirstName.clear();
+        txtLastName.clear();
+        txtShortBio.clear();
+        txtStreet.clear();
+        txtState.clear();
+        txtZip.clear();
+        txtCity.clear();
+        txtPhone.clear();
     }
+
 
 
 }

@@ -4,26 +4,31 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import com.jfoenix.validation.NumberValidator;
 import context.AppContext;
+import context.ValidationUtils;
 import domain.Author;
 import domain.Book;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.VLineTo;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import service.AuthorServiceImpl;
@@ -66,8 +71,6 @@ public class AddBookController implements Initializable {
     @FXML
     TableColumn<Author, String> bioColumn;
 
-
-
     private ObservableList<Author> data;
 
     private List<Author> authorList = new ArrayList<>();
@@ -75,18 +78,57 @@ public class AddBookController implements Initializable {
     void addBook(ActionEvent event) {
 
         try{
-            IAuthorService s = new AuthorServiceImpl();
-            int num = Integer.parseInt(maxlength.getText());
-            Book abook = new Book(isbn.getText(), title.getText(), num , authorList);
-            IBookService service = new BookServiceImpl();
-            Book a = service.addNewBook(abook);
-            lblMessage.setText("Book is added successfully!");
+
+            if(validateForm()) {
+
+
+                IAuthorService s = new AuthorServiceImpl();
+                int num = Integer.parseInt(maxlength.getText());
+                Book abook = new Book(isbn.getText(), title.getText(), num, authorList);
+                IBookService service = new BookServiceImpl();
+                Book b = service.addNewBook(abook);
+
+                // lblMessage.setText("Book is added successfully!");
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                a.setHeaderText(String.format("Book %s", b.getIsbn() + ":" + b.getTitle()) + " is added successfully.");
+                a.setAlertType(Alert.AlertType.INFORMATION);
+
+                Optional<ButtonType> alert = a.showAndWait();
+                if (alert.get() == ButtonType.OK) {
+                    clear();
+                }
+            }
+
         }catch (Exception e){
             System.out.println("Add book error:" + e.getMessage());
             lblMessage.setText("Can't add this book!");
         }
+
         clear();
+
     }
+
+
+    private boolean validateForm(){
+
+        if(ValidationUtils.isValidText(isbn.getText())){
+            lblMessage.setText("ISBN is invalid");
+            return false;
+        }
+        if("".equals(title.getText()) || "".equals(title.getText().trim())){
+            lblMessage.setText("Title is invalid");
+            return false;
+        }
+        if(ValidationUtils.isNumberOnly(maxlength.getText())){
+            lblMessage.setText("Checkout length is numberic");
+            return false;
+        }
+
+
+        return true;
+    }
+
+
 
     private void clear(){
         isbn.clear();
@@ -96,11 +138,6 @@ public class AddBookController implements Initializable {
 
     }
 
-
-    @FXML
-    void cancel(ActionEvent event) {
-
-    }
 
     @FXML
     void showAddAuthorScreen(ActionEvent event) throws IOException {

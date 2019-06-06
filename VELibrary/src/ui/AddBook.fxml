@@ -18,7 +18,6 @@
                   <JFXTextField fx:id="title" layoutX="183.0" layoutY="77.0" prefHeight="39.0" prefWidth="376.0" promptText="Title" />
                    <JFXTextField fx:id="maxlength" layoutX="183.0" layoutY="127.0" prefHeight="39.0" prefWidth="376.0" promptText="Max Checkout Length" />
                   <JFXButton fx:id="btnAddBook" layoutX="254.0" layoutY="511.0" onAction="#addBook" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Book" />
-                  <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" onAction="#cancel" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" />
                   <TableView fx:id="tbvAuthor" layoutX="43.0" layoutY="188.0" prefHeight="293.0" prefWidth="647.0">
                     <columns>
                       <TableColumn fx:id="fnColumn" prefWidth="75.0" text="First Name" />
