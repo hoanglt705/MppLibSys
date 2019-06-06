@@ -8,6 +8,7 @@ import domain.BookCopy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -70,6 +71,17 @@ public class BookServiceImpl implements IBookService {
 	@Override
 	public long countAvailable(String isbn) {
 		return dataaccess.findBook(isbn).getCopies().stream().filter(BookCopy::isAvailable).count();
+	}
+
+
+	@Override
+	public void returnBook(String isbn) {
+		Optional<BookCopy> test = dataaccess.findBook(isbn).getCopies().stream()
+				.filter(bookCopy -> !bookCopy.isAvailable()).findFirst();
+		if(test.isPresent()) {
+			test.get().changeAvailability();
+			dataaccess.saveBook(test.get().getBook());
+		}
 	}
 
 }

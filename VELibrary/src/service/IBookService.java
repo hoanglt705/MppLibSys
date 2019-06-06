@@ -16,4 +16,5 @@ public interface IBookService {
 	public void saveBook(Book book);
 	public void addBookCopy(String isbn);
 	public long countAvailable(String isbn);
+	public void returnBook(String isbn);
 }
