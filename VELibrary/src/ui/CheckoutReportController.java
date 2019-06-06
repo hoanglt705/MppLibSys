@@ -111,7 +111,7 @@ public class CheckoutReportController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		setUpBookTableView();
 		setUpMemberTableView();
-		setUpOverdueTableView();
+//		setUpOverdueTableView();
 	}
 
 	private void setUpOverdueTableView() {
