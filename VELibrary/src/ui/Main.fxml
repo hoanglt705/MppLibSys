@@ -124,7 +124,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label prefHeight="29.0" prefWidth="771.0" text="Admin" textAlignment="CENTER">
+            <Label fx:id="lblCurUsr" prefHeight="29.0" prefWidth="771.0" text="Admin" textAlignment="CENTER">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>

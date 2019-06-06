@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import context.AppContext;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
@@ -49,7 +51,8 @@ public class MainController implements Initializable{
 	@FXML
 	private JFXButton btnLogout;
 	
-	
+	@FXML
+    private Label lblCurUsr;
 
 	@FXML
 	void registerMember(ActionEvent event) throws IOException {
@@ -93,6 +96,8 @@ public class MainController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        AppContext context = AppContext.getInstance();
+        lblCurUsr.setText(context.getUser().getId() + " [" + context.getUser().getRoles() +"]" );
 	}
 
 	@FXML
