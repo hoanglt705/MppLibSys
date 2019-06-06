@@ -54,7 +54,7 @@ public class AddMemberController {
 
         Alert a = new Alert(AlertType.INFORMATION);
     	a.setHeaderText(String.format("Member id is %s", memberId));
-    	a.setContentText("Please provide this id to student");
+    	a.setContentText("Please provide this id to member");
     	a.setAlertType(AlertType.INFORMATION);
     	a.showAndWait();
     	clear();
