@@ -54,12 +54,10 @@ public class SelectAuthorController implements Initializable {
 	@FXML
 	void selectAuthor(ActionEvent event) {
         AppContext context = AppContext.getInstance();
-        List<Author> selectedList = new ArrayList<>();
-
-        selectedList = tableView.getSelectionModel().getSelectedItems();
-        context.setSelectedAuthor(selectedList);
+        context.setSelectedAuthor(tableView.getSelectionModel().getSelectedItems());
 
         Stage stage = (Stage) tableView.getScene().getWindow();
+
         stage.close();
 
 	}

@@ -81,6 +81,11 @@ public class MainController implements Initializable{
 		displayScreen("CopyBook.fxml");
 	}
 
+    @FXML
+    void addAuthor(ActionEvent event) throws IOException{
+        displayScreen("AddAuthor.fxml");
+    }
+
 	public void initialize() {
 		try {
 			displayScreen("CheckoutBook.fxml");

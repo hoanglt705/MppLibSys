@@ -93,6 +93,7 @@ public class AddBookController implements Initializable {
         title.clear();
         maxlength.clear();
         data.clear();
+
     }
 
 
@@ -109,9 +110,9 @@ public class AddBookController implements Initializable {
     	stage.initStyle(StageStyle.UTILITY);
     	stage.setScene(new Scene(root));
     	stage.showAndWait();
-
+        data.addAll(AppContext.getInstance().getSelectedAuthor());
         authorList.addAll(AppContext.getInstance().getSelectedAuthor());
-        data.addAll(authorList);
+
     }
 
     @Override
@@ -121,8 +122,8 @@ public class AddBookController implements Initializable {
         bioColumn.setCellValueFactory(new PropertyValueFactory<>("bio"));
         data = FXCollections.observableArrayList();
 
-
-        data.addAll(AppContext.getInstance().getSelectedAuthor());
+        //data.addAll(AppContext.getInstance().getSelectedAuthor());
         tbvAuthor.setItems(data);
+
     }
 }

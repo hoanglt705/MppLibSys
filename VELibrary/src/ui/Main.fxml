@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainController">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="665.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
+      <AnchorPane layoutX="-1.0" prefHeight="700.0" prefWidth="269.0" style="-fx-background-color: #F5F6FC;">
          <children>
             <Label alignment="BASELINE_CENTER" layoutY="-1.0" prefHeight="104.0" prefWidth="269.0" style="-fx-background-color: DBE2F4;" text="VE Library" textAlignment="CENTER" textFill="#0c1f61">
                <font>
@@ -91,6 +91,18 @@
                   </ImageView>
                </graphic>
             </Button>
+             <Button fx:id="btnAddAuthor" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="471.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Add Author">
+                 <font>
+                     <Font name="System Bold" size="19.0" />
+                 </font>
+                 <graphic>
+                     <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../ui/icons/framed-portrait.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
             <Button fx:id="btnAddCopyBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="410.0" mnemonicParsing="false" onAction="#addCopyBook" prefHeight="61.0" prefWidth="269.0" styleClass="main-menu" stylesheets="@application.css" text="Add Book Copy">
                <font>
                   <Font name="System Bold" size="19.0" />
@@ -98,11 +110,12 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ui/icons/add-to-queue-button.png" />
+                        <Image url="@../ui/icons/copy-content.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
+
          </children></AnchorPane>
       <HBox layoutX="-1.0" layoutY="665.0" prefHeight="35.0" prefWidth="1000.0" style="-fx-background-color: DBE2F4;">
          <children>
