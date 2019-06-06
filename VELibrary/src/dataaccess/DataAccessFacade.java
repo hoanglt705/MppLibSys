@@ -6,14 +6,20 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 import domain.Author;
 import domain.Book;
+import domain.BookCopy;
+import domain.CheckoutRecord;
+import domain.CheckoutRecordEntry;
 import domain.Member;
 import domain.User;
 
@@ -21,7 +27,7 @@ import domain.User;
 public class DataAccessFacade implements DataAccess {
 	
 	enum StorageType {
-		BOOKS, MEMBERS, USERS, AUTHORS;
+		BOOKS, MEMBERS, USERS, AUTHORS, CHECKOUT_RECORD;
 	}
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "//src//dataaccess//storage";
@@ -60,8 +66,7 @@ public class DataAccessFacade implements DataAccess {
 
         return author;
     }
-
-
+    
     @SuppressWarnings("unchecked")
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being
@@ -75,13 +80,20 @@ public class DataAccessFacade implements DataAccess {
 		//   memberId -> Member
 		return (HashMap<String, Member>) readFromStorage(StorageType.MEMBERS);
 	}
-
+	
     @Override
 	public HashMap<String, Author> readAuthorsMap() {
 		return (HashMap<String, Author>) readFromStorage(StorageType.AUTHORS);
 
 	}
 
+    @Override
+	public HashMap<String, CheckoutRecord> readCheckoutRecordMap() {
+		return (HashMap<String, CheckoutRecord>) readFromStorage(StorageType.CHECKOUT_RECORD);
+
+	}
+
+    
 	@SuppressWarnings("unchecked")
 	public HashMap<String, User> readUserMap() {
 		//Returns a Map with name/value pairs being
@@ -185,6 +197,61 @@ public class DataAccessFacade implements DataAccess {
 	@Override
 	public Book findBook(String isbn) {
 		return readBooksMap().get(isbn);
+	}
+
+	@Override
+	public boolean existBook(String isbn) {
+		return readBooksMap().containsKey(isbn);
+	}
+
+	@Override
+	public boolean hasAvailableBookCopy(String isbn) {
+		// TODO Auto-generated method stub
+		return readBooksMap().get(isbn).getCopies().stream().anyMatch(BookCopy::isAvailable);
+	}
+
+	@Override
+	public BookCopy findCopy(String isbn) {
+		Optional<BookCopy> bookCopy = readBooksMap().get(isbn).getCopies().stream().filter(BookCopy::isAvailable).findFirst();
+		boolean existed = bookCopy.isPresent();
+		return existed ? bookCopy.get() : null;
+	}
+
+
+	public static void loadCheckoutRecord(List<CheckoutRecordEntry> entries) {
+		Map<String, CheckoutRecordEntry> users = new HashMap<>();
+		entries.forEach(entry -> users.put(entry.getId(), entry));
+		saveToStorage(StorageType.CHECKOUT_RECORD, users);
+	}
+
+	@Override
+	public void setBookCopyAvailable(BookCopy bookCopy, boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveCheckoutRecord(CheckoutRecord checkoutRecord) {
+		HashMap<String, CheckoutRecord> records = readCheckoutRecordMap();
+		Random random = new Random();
+		String checkoutRecordId = Integer.toString(random.nextInt(10000));
+		checkoutRecord.setId(checkoutRecordId);
+		records.put(checkoutRecordId, checkoutRecord);
+		saveToStorage(StorageType.CHECKOUT_RECORD, records);
+	}
+
+	@Override
+	public void saveBook(Book book) {
+		HashMap<String, Book> books = readBooksMap();
+		books.put(book.getIsbn(),book);
+		saveToStorage(StorageType.BOOKS, books);
+	}
+
+	@Override
+	public List<CheckoutRecord> findAllCheckoutRecord(String memberId) {
+		// TODO Auto-generated method stub
+		return readCheckoutRecordMap().values().stream()
+				.filter(checkoutRecord -> checkoutRecord.getMemberId().equals(memberId)).collect(Collectors.toList());
 	}
 	
 }

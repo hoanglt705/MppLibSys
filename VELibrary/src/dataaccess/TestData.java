@@ -1,17 +1,18 @@
 package dataaccess;
 
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
+
 import domain.Address;
 import domain.Author;
 import domain.Book;
 import domain.Member;
 import domain.Role;
 import domain.User;
-
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 
 public class TestData {
 	List<Member> members = new ArrayList<Member>();
@@ -70,11 +71,17 @@ public class TestData {
 		td.bookData();
 		td.libraryMemberData();
 		td.userData();
+		td.checkoutRecordEntry();
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
 		System.out.println(da.readUserMap());
         td.AuthorData();
 
+	}
+	
+	private void checkoutRecordEntry() {
+		DataAccessFacade.loadCheckoutRecord(Collections.emptyList());
+		
 	}
 	///create books
 	public void bookData() {
@@ -91,9 +98,7 @@ public class TestData {
 		DataAccessFacade.loadUserMap(allUsers);
 	}
 
-
 	//create library members
-	
 	public void libraryMemberData() {
 		Member member = new Member("1001", "Andy", "Rogers", "641-223-2211", addresses.get(4));
 		members.add(member);

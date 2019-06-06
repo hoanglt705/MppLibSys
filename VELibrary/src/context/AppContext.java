@@ -34,6 +34,7 @@ public class AppContext  {
 		this.checkoutRecord = checkoutRecord;
 	}
 
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -46,11 +47,12 @@ public class AppContext  {
         return user;
     }
 
-    public CheckoutRecord getCheckoutRecord() {
-        return checkoutRecord;
-    }
-
     public List<Author> getSelectedAuthor() {
         return selectedAuthor;
     }
+
+	public CheckoutRecord getCheckoutRecord() {
+		return checkoutRecord;
+	}
+
 }
