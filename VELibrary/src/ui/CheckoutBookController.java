@@ -12,12 +12,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import service.CheckoutService;
+import service.ICheckoutService;
+import service.IMemberService;
+import service.MemberServiceImpl;
 
 public class CheckoutBookController {
 
+	private ICheckoutService checkoutService = new CheckoutService();
+	private IMemberService memberService = new MemberServiceImpl();
+	
 	@FXML
 	private JFXTextField txtMemberId;
 
@@ -32,8 +41,22 @@ public class CheckoutBookController {
 
 	@FXML
 	void addBookDetail(ActionEvent event) throws IOException {
+		boolean exist = memberService.exist(txtMemberId.getText());
+		if(!exist) {
+			Alert a = new Alert(AlertType.WARNING);
+	    	a.setHeaderText("The member id is not valid");
+	    	a.showAndWait();
+	    	return;
+		}
 		createCheckoutRecord();
 		showCheckoutBookDetail();
+		saveCheckoutRecord();
+	}
+
+	private void saveCheckoutRecord() {
+		CheckoutRecord checkoutRecord = AppContext.getInstance().getCheckoutRecord();
+		checkoutService.save(checkoutRecord);
+		AppContext.getInstance().setCheckoutRecord(null);
 	}
 
 	private void createCheckoutRecord() {

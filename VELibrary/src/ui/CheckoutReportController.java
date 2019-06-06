@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import service.CheckoutService;
 import service.ICheckoutService;
 import service.IMemberService;
@@ -24,6 +25,9 @@ public class CheckoutReportController {
 
 	@FXML
 	private JFXButton btnSearch;
+	
+	@FXML
+	private Label lblConsole;
 
 	@FXML
 	void print(ActionEvent event) {
@@ -52,6 +56,11 @@ public class CheckoutReportController {
 			return;
 		}
 		
-		checkoutRecords.stream().forEach(System.out::println);
+		StringBuilder builder = new StringBuilder();
+		builder.append("\n PRINT RECORD OF MEMBER ").append(memberId);
+		checkoutRecords.stream().forEach(record -> {
+			builder.append(record);
+		});
+		lblConsole.setText(builder.toString());
 	}
 }
