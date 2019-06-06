@@ -42,6 +42,9 @@ public class MainController implements Initializable{
 
 	@FXML
 	private Button btnReturnBook;
+	
+	@FXML
+	private Button btnAddCopyBook;
 
 	@FXML
 	private JFXButton btnLogout;
@@ -71,6 +74,11 @@ public class MainController implements Initializable{
 	@FXML
 	void generateReport(ActionEvent event) throws IOException {
 		displayScreen("Report.fxml");
+	}
+	
+	@FXML
+	void addCopyBook(ActionEvent event) throws IOException {
+		displayScreen("CopyBook.fxml");
 	}
 
 	public void initialize() {

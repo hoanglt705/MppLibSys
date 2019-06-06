@@ -26,6 +26,11 @@ public class AppContext  {
 
 	public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
 		this.checkoutRecord = checkoutRecord;
-		
 	}
+
+	public CheckoutRecord getCheckoutRecord() {
+		return checkoutRecord;
+	}
+	
+	
 }

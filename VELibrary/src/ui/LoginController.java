@@ -1,16 +1,16 @@
 package ui;
 
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.security.auth.login.LoginException;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +22,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import service.UserServiceImp;
 
 import javax.security.auth.login.LoginException;
@@ -87,15 +86,15 @@ public class LoginController implements Initializable {
 
 			}
 		});
-		
+
 		mainScreen.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent event) {
 				mainScreen.getScene().getWindow().setX(event.getScreenX() - xOffset);
-				mainScreen.getScene().getWindow().setY(event.getScreenY() - yOffset);				
+				mainScreen.getScene().getWindow().setY(event.getScreenY() - yOffset);
 			}
-			
+
 		});
 	}
 }

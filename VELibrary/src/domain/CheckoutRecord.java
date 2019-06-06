@@ -1,10 +1,13 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CheckoutRecord {
+public class CheckoutRecord implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private String id;
 	private String memberId;
 	private List<CheckoutRecordEntry> checkoutRecords;
 
@@ -23,6 +26,14 @@ public class CheckoutRecord {
 
 	public List<CheckoutRecordEntry> getCheckoutRecords() {
 		return checkoutRecords;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
