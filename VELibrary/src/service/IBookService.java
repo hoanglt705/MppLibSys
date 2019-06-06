@@ -15,5 +15,5 @@ public interface IBookService {
 	public int getMaxCheckoutLength(String isbn);
 	public void saveBook(Book book);
 	public void addBookCopy(String isbn);
-
+	public long countAvailable(String isbn);
 }

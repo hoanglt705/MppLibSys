@@ -66,4 +66,10 @@ public class BookServiceImpl implements IBookService {
 		saveBook(book);
 	}
 
+
+	@Override
+	public long countAvailable(String isbn) {
+		return dataaccess.findBook(isbn).getCopies().stream().filter(BookCopy::isAvailable).count();
+	}
+
 }
