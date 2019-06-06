@@ -3,16 +3,13 @@ package ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import com.sun.org.omg.CORBA.Initializer;
 import context.AppContext;
-import domain.Address;
 import domain.Author;
 import domain.Book;
 import javafx.collections.FXCollections;
@@ -27,10 +24,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import service.*;
+import service.AuthorServiceImpl;
+import service.BookServiceImpl;
+import service.IAuthorService;
+import service.IBookService;
 
 public class AddBookController implements Initializable {
 

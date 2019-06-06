@@ -1,13 +1,13 @@
 package ui;
 
+import java.util.Optional;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.OptionalPropertyMode;
 import domain.Address;
 import domain.Author;
-import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,10 +15,6 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import service.AuthorServiceImpl;
 import service.IAuthorService;
-import service.IMemberService;
-import service.MemberServiceImpl;
-
-import java.util.Optional;
 
 public class AddAuthorController {
 
