@@ -1,7 +1,11 @@
 package context;
 
+import domain.Author;
 import domain.CheckoutRecord;
 import domain.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppContext  {
 
@@ -10,10 +14,12 @@ public class AppContext  {
     public User user;
 
 	private CheckoutRecord checkoutRecord;
+    private List<Author> selectedAuthor;
 
     private AppContext()
     {
         user = new User();
+        selectedAuthor = new ArrayList<Author>();
     }
 
     public static AppContext getInstance()
@@ -28,9 +34,25 @@ public class AppContext  {
 		this.checkoutRecord = checkoutRecord;
 	}
 
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setSelectedAuthor(List<Author> selectedAuthor) {
+        this.selectedAuthor = selectedAuthor;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public List<Author> getSelectedAuthor() {
+        return selectedAuthor;
+    }
+
 	public CheckoutRecord getCheckoutRecord() {
 		return checkoutRecord;
 	}
-	
-	
+
 }

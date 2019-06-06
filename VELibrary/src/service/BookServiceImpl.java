@@ -2,13 +2,23 @@ package service;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
+import domain.Author;
 import domain.Book;
 import domain.BookCopy;
 
-/**
- * Created by haupham on 6/5/19.
- */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
 public class BookServiceImpl implements IBookService {
+    @Override
+    public List<Book> listAllBook() {
+        DataAccess dataaccess = new DataAccessFacade();
+        HashMap<String, Book> maps = dataaccess.readBooksMap();
+        return maps != null ? maps.values().stream().collect(Collectors.toList()) : new ArrayList<Book>();
+    }
 
 	private DataAccess dataaccess = new DataAccessFacade();
     
@@ -17,6 +27,7 @@ public class BookServiceImpl implements IBookService {
         dataaccess.saveNewBook(book);
         return book;
     }
+
 
 	@Override
 	public Book find(String isbn) {
@@ -55,4 +66,5 @@ public class BookServiceImpl implements IBookService {
 		book.addCopy();
 		saveBook(book);
 	}
+
 }

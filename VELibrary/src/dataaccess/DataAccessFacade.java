@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import domain.Author;
@@ -36,6 +37,7 @@ public class DataAccessFacade implements DataAccess {
 	@Override
 	public String saveNewMember(Member member) {
 		HashMap<String, Member> mems = readMemberMap();
+        if(mems == null) mems = new HashMap<>();
 		Random random = new Random();
 		String memberId = Integer.toString(random.nextInt(10000));
 		mems.put(memberId, member);
@@ -46,6 +48,7 @@ public class DataAccessFacade implements DataAccess {
 	@Override
 	public Book saveNewBook(Book book) {
 		HashMap<String, Book> books = readBooksMap();
+        if(books == null) books = new HashMap<>();
 		books.put(book.getIsbn(),book);
 		saveToStorage(StorageType.BOOKS, books);
 		return book;
@@ -54,10 +57,10 @@ public class DataAccessFacade implements DataAccess {
     @Override
     public Author saveNewAuthor(Author author) {
         HashMap<String, Author> authors = readAuthorsMap();
-        if(authors == null)
-            authors = new HashMap<String, Author>();
+        if(authors == null) authors = new HashMap<String, Author>();
         Random random = new Random();
         String authId = Integer.toString(random.nextInt(10000));
+        author.setId(authId);
         authors.put(authId, author);
         saveToStorage(StorageType.AUTHORS, authors);
 
@@ -68,7 +71,7 @@ public class DataAccessFacade implements DataAccess {
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being
 		//   isbn -> Book
-		return (HashMap<String,Book>) readFromStorage(StorageType.BOOKS);
+		return (HashMap<String, Book>) readFromStorage(StorageType.BOOKS);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -119,6 +122,12 @@ public class DataAccessFacade implements DataAccess {
 		memberList.forEach(member -> members.put(member.getMemberId(), member));
 		saveToStorage(StorageType.MEMBERS, members);
 	}
+
+    static void loadAuthorMap(List<Author> authorList) {
+        HashMap<String, Author> authors = new HashMap<String, Author>();
+        authorList.forEach(au -> authors.put(au.getId(), au));
+        saveToStorage(StorageType.AUTHORS, authors);
+    }
 	
 	static void saveToStorage(StorageType type, Object ob) {
 		Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
