@@ -2,6 +2,8 @@ package ui;
 
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -11,11 +13,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -23,8 +27,9 @@ import service.UserServiceImp;
 
 import javax.security.auth.login.LoginException;
 
-public class LoginController {
-
+public class LoginController implements Initializable {
+	private double xOffset = 0;
+	private double yOffset = 0;
 	@FXML
 	private JFXButton btnCancel;
 
@@ -41,11 +46,14 @@ public class LoginController {
 	private Label lblMessage;
 
 	@FXML
+	private AnchorPane mainScreen;
+
+	@FXML
 	void loginClick(ActionEvent event) throws IOException {
-		//validate login...
+		// validate login...
 		Stage stage = (Stage) btnCancel.getScene().getWindow();
-		//stage.close();
-		//stage = new Stage();
+		// stage.close();
+		// stage = new Stage();
 
 		UserServiceImp userService = new UserServiceImp();
 
@@ -68,4 +76,26 @@ public class LoginController {
 		stage.close();
 	}
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		mainScreen.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+
+			}
+		});
+		
+		mainScreen.setOnMouseDragged(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				mainScreen.getScene().getWindow().setX(event.getScreenX() - xOffset);
+				mainScreen.getScene().getWindow().setY(event.getScreenY() - yOffset);				
+			}
+			
+		});
+	}
 }

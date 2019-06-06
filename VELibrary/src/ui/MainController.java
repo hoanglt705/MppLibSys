@@ -1,20 +1,30 @@
 package ui;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class MainController {
+public class MainController implements Initializable{
 
+	private double xOffset = 0;
+	private double yOffset = 0;
+	
 	@FXML
 	private AnchorPane mainScreen;
 
@@ -89,6 +99,34 @@ public class MainController {
 		AnchorPane screen = FXMLLoader.load(getClass().getResource(fxmlPath));
 		mainScreen.getChildren().clear();
 		mainScreen.getChildren().add(screen);
+	}
+	
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		initialize();
+		
+		//to allow users to drag the screen
+		mainScreen.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				xOffset = event.getSceneX();
+				yOffset = event.getSceneY();
+
+			}
+		});
+		
+		mainScreen.setOnMouseDragged(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent event) {
+				mainScreen.getScene().getWindow().setX(event.getScreenX() - xOffset);
+				mainScreen.getScene().getWindow().setY(event.getScreenY() - yOffset);				
+			}
+			
+		});
 	}
 
 }
