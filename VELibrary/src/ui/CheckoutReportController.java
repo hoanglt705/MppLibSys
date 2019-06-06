@@ -16,7 +16,8 @@ import service.IMemberService;
 import service.MemberServiceImpl;
 
 public class CheckoutReportController {
-	IMemberService memberService = new MemberServiceImpl();
+	private IMemberService memberService = new MemberServiceImpl();
+	private ICheckoutService checkoutService = new CheckoutService();
 
 	@FXML
 	private JFXTextField txtMemberId;
@@ -28,19 +29,29 @@ public class CheckoutReportController {
 	void print(ActionEvent event) {
 		String memberId = txtMemberId.getText();
 		boolean exist = memberService.exist(memberId);
-		if(!exist) {
-			Alert a = new Alert(AlertType.ERROR);
-	    	a.setHeaderText("The member id does not correct");
-	    	a.setAlertType(AlertType.INFORMATION);
-	    	a.showAndWait();
-	    	return;
+		if (!exist) {
+			alertNotExist();
+			return;
 		}
-		
+
 		printToConsole(memberId);
 	}
 
+	private void alertNotExist() {
+		Alert a = new Alert(AlertType.ERROR);
+		a.setHeaderText("The member id does not correct");
+		a.setAlertType(AlertType.INFORMATION);
+		a.showAndWait();
+	}
+
 	private void printToConsole(String memberId) {
-		ICheckoutService checkoutService = new CheckoutService();
-		checkoutService.findAll(memberId).stream().forEach(System.out::println);
+		List<CheckoutRecord> checkoutRecords = checkoutService.findAll(memberId);
+		
+		if (checkoutRecords.isEmpty()) {
+			System.out.println("There is no checkout record for this member id");
+			return;
+		}
+		
+		checkoutRecords.stream().forEach(System.out::println);
 	}
 }

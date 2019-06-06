@@ -31,6 +31,9 @@ public class CopyBookController {
 	    	return;
 		}
 		service.addBookCopy(isbn);
+		Alert a = new Alert(AlertType.INFORMATION);
+    	a.setHeaderText("Add a book copy successfully");
+    	a.showAndWait();
 		clear();
 	}
 

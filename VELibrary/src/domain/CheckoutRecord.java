@@ -1,11 +1,12 @@
 package domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CheckoutRecord implements Serializable{
+public class CheckoutRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String memberId;
@@ -34,6 +35,27 @@ public class CheckoutRecord implements Serializable{
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		StringBuilder builder = new StringBuilder();
+		builder.append("\n PRINT RECORD OF MEMBER ").append(memberId);
+		builder.append("\n**************************");
+		builder.append("\n id: ").append(id);
+		builder.append("\n entry total: ").append(checkoutRecords.size());
+		for (int i=0; i<checkoutRecords.size(); i++) {
+			CheckoutRecordEntry entry = checkoutRecords.get(i);
+			builder.append("\n*********** order ").append(i + 1).append("*********************");
+			builder.append("\n\t title: ").append(entry.getBookCopy().getBook().getTitle());
+			builder.append("\n\t checkout date: ").append(simpleDateFormat.format(entry.getCheckoutDate()));
+			builder.append("\n\t due date: ").append(simpleDateFormat.format(entry.getDueDate()));
+			builder.append("\n**********************************************************");
+		}
+		checkoutRecords.stream().forEach(entry -> {
+		});
+		return builder.toString();
 	}
 
 }

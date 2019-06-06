@@ -98,7 +98,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ui/icons/screen-with-news-sections.png" />
+                        <Image url="@../ui/icons/add-to-queue-button.png" />
                      </image>
                   </ImageView>
                </graphic>
