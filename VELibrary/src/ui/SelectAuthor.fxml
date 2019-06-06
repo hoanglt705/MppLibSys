@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.SelectAuthorController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="733.0" style="-fx-background-color: #DBE2F4;" text="Authors" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableView" layoutX="81.0" layoutY="181.0" prefHeight="240.0" prefWidth="586.0">
+        <columns>
+          <TableColumn fx:id="fnColumn" prefWidth="75.0" text="First Name" />
+          <TableColumn fx:id="lnColumn" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="bioColumn" prefWidth="250.0" text="Short Bio" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnAddAuthor" layoutX="479.0" layoutY="441.0" onAction="#selectAuthor" prefHeight="40.0" prefWidth="188.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
+      <Label fx:id="lblDetail" layoutX="87.0" layoutY="130.0" prefHeight="34.0" prefWidth="324.0" />
+   </children>
+</AnchorPane>

@@ -4,17 +4,21 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.OptionalPropertyMode;
 import domain.Address;
 import domain.Author;
 import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import service.AuthorServiceImpl;
 import service.IAuthorService;
 import service.IMemberService;
 import service.MemberServiceImpl;
+
+import java.util.Optional;
 
 public class AddAuthorController {
 
@@ -62,7 +66,13 @@ public class AddAuthorController {
             a.setHeaderText(String.format("Author %s", newAuthor.getFirstName()));
             a.setContentText("Please provide this id to student");
             a.setAlertType(Alert.AlertType.INFORMATION);
-            a.showAndWait();
+
+        Optional<ButtonType> alert = a.showAndWait();
+            if(alert.get() == ButtonType.OK){
+                System.out.println("Lam gi lam");
+            }else{
+                System.out.println("KM");
+            }
 
     }
 
