@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Collection;
 import java.util.List;
 
 import dataaccess.DataAccess;
@@ -26,6 +27,11 @@ public class CheckoutService implements ICheckoutService {
 	@Override
 	public List<CheckoutRecord> findAll(String memberId) {
 		return dataAccess.findAllCheckoutRecord(memberId);
+	}
+
+	@Override
+	public Collection<CheckoutRecord> findAll() {
+		return dataAccess.readCheckoutRecordMap().values();
 	}
 
 }

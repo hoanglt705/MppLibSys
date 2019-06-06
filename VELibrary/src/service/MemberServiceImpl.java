@@ -1,5 +1,8 @@
 package service;
 
+import java.util.Collection;
+import java.util.List;
+
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import domain.Address;
@@ -19,5 +22,10 @@ public class MemberServiceImpl implements IMemberService {
 	
 	private DataAccess getDataAccess() {
 		return new DataAccessFacade();
+	}
+
+	@Override
+	public Collection<Member> listAllMember() {
+		return getDataAccess().readMemberMap().values();
 	}
 }
