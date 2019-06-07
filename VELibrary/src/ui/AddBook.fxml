@@ -26,7 +26,7 @@
                     </columns>
                   </TableView>
                   <JFXButton fx:id="btnAddAuthor" layoutX="586.0" layoutY="148.0" onAction="#showAddAuthorScreen" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
-                   <Label fx:id="lblMessage" layoutX="87.0" layoutY="550.0" prefHeight="34.0" prefWidth="324.0" />
+                   <Label fx:id="lblMessage" layoutX="87.0" layoutY="550.0" alignment="CENTER" prefHeight="69.0" prefWidth="495.0" text="" textAlignment="CENTER" textFill="firebrick"/>
                </children>
             </AnchorPane>
          </center>

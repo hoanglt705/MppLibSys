@@ -33,6 +33,8 @@
                   <JFXTextField fx:id="txtPhone" layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
                   <JFXButton fx:id="btnAdd" layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" onAction="#addMember"/>
                   <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" onAction="#cancel"/>
+                   <Label fx:id="lblMessage" layoutX="183.0" layoutY="550.0" prefHeight="34.0" prefWidth="324.0" text="" textAlignment="CENTER" textFill="firebrick"/>
+
                </children>
             </AnchorPane>
          </center>

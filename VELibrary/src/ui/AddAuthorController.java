@@ -57,36 +57,42 @@ public class AddAuthorController {
     @FXML
     void addAuthor(ActionEvent event) {
 
+        if(validateForm()) {
 
+            Address address = new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText());
+            Author author = new Author(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), address, txtShortBio.getText());
+            IAuthorService service = new AuthorServiceImpl();
+            Author newAuthor = service.createNewAuthor(author, address);
 
-        Address address = new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText());
-        Author author = new Author(txtFirstName.getText(),txtLastName.getText(), txtPhone.getText(), address, txtShortBio.getText());
-        IAuthorService service = new AuthorServiceImpl();
-        Author newAuthor = service.createNewAuthor(author, address);
-
-        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setHeaderText(String.format("Author %s", newAuthor.getFirstName() + " is added successfully!"));
             a.setAlertType(Alert.AlertType.INFORMATION);
 
-        Optional<ButtonType> alert = a.showAndWait();
-            if(alert.get() == ButtonType.OK){
+            Optional<ButtonType> alert = a.showAndWait();
+            if (alert.get() == ButtonType.OK) {
                 clear();
             }
+        }
     }
 
     private boolean validateForm(){
 
-        if(ValidationUtils.isValidText(txtFirstName.getText())){
-            lblMessage.setText("ISBN is invalid");
+        if("".equals(txtFirstName.getText()) || "".equals(txtFirstName.getText().trim())){
+            lblMessage.setText("First Name is invalid");
             return false;
         }
-        
-        if(ValidationUtils.isNumberOnly(txtZip.getText())){
-            lblMessage.setText("Zip is invalid");
+
+        if("".equals(txtLastName.getText()) || "".equals(txtLastName.getText().trim())){
+            lblMessage.setText("Last Name is invalid");
             return false;
         }
-        if(ValidationUtils.isValidPhoneNo(txtPhone.getText())){
-            lblMessage.setText("Phone is invalid");
+
+        if(!ValidationUtils.isNumberOnly(txtZip.getText())){
+            lblMessage.setText("Zipcode is invalid");
+            return false;
+        }
+        if(!ValidationUtils.isValidPhoneNo(txtPhone.getText())){
+            lblMessage.setText("Phone Number is invalid");
             return false;
         }
 
@@ -103,6 +109,7 @@ public class AddAuthorController {
         txtZip.clear();
         txtCity.clear();
         txtPhone.clear();
+        lblMessage.setText("");
     }
 
 
