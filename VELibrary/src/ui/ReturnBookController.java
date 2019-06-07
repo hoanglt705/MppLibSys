@@ -12,6 +12,8 @@ import service.IBookService;
 
 public class ReturnBookController {
 
+	IBookService bookService = new BookServiceImpl();
+
     @FXML
     private JFXTextField txtBookId;
 
@@ -20,12 +22,18 @@ public class ReturnBookController {
 
     @FXML
     void returnBook(ActionEvent event) {
-    	IBookService bookService = new BookServiceImpl();
+    	String isbn = txtBookId.getText();
+    	if(!bookService.available(isbn)) {
+    		Alert a = new Alert(AlertType.ERROR);
+        	a.setHeaderText("Isbn is invalid");
+        	a.showAndWait();
+        	return;
+    	}
+    	
     	bookService.returnBook(txtBookId.getText());
     	
     	Alert a = new Alert(AlertType.INFORMATION);
     	a.setHeaderText("Book is returned");
-    	a.setAlertType(AlertType.INFORMATION);
     	a.showAndWait();
     	
     	txtBookId.clear();
