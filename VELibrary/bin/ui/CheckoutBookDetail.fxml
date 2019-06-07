@@ -14,7 +14,7 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtBookId" layoutX="69.0" layoutY="84.0" prefHeight="39.0" prefWidth="340.0" promptText="ISBN" />
+      <JFXTextField fx:id="txtBookId" layoutX="83.0" layoutY="84.0" prefHeight="39.0" prefWidth="326.0" promptText="ISBN" />
       <JFXButton fx:id="btnAddToList" layoutX="489.0" layoutY="88.0" onAction="#addToList" prefHeight="40.0" prefWidth="179.0" styleClass="login-button" stylesheets="@application.css" text="Add to List" />
       <TableView fx:id="tableView" layoutX="69.0" layoutY="154.0" prefHeight="267.0" prefWidth="598.0">
         <columns>

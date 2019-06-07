@@ -3,13 +3,13 @@ package ui;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.prism.impl.Disposer.Record;
 
 import domain.Book;
 import domain.CheckoutRecord;
@@ -88,6 +88,9 @@ public class CheckoutReportController implements Initializable{
 	private JFXButton btnOverDueSearch;
 
 	@FXML
+	private TableView<OverDueDetail> tblOverDue;
+	
+	@FXML
 	TableColumn<OverDueDetail, String> colOverDueISBN;
 
 	@FXML
@@ -116,7 +119,7 @@ public class CheckoutReportController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		setUpBookTableView();
 		setUpMemberTableView();
-//		setUpOverdueTableView();
+		setUpOverdueTableView();
 	}
 
 	private void setUpOverdueTableView() {
@@ -132,18 +135,17 @@ public class CheckoutReportController implements Initializable{
 			allEntries.addAll(record.getCheckoutRecords());
 		});
 		
-//		allEntries.stream().map(entry -> {
-//			String isbn = entry.getBookCopy().getBook().getIsbn();
-//			String title = entry.getBookCopy().getBook().getTitle();
-//			String copyNum = entry.getBookCopy().getCopyNum();
-//			return new OverDueDetail(isbn, title, copyNo, overdueStatus);
-//		});
-//		List<OverDueDetail> bookDetails = checkoutRecords.stream().map(member-> {
-//			return new MemberDetail(member.getMemberId(), member.getFirstName(), member.getLastName(), member.getTelephone());
-//		}).collect(Collectors.toList());
-//		ObservableList<MemberDetail> data = FXCollections.observableArrayList();
-//		data.addAll(bookDetails);
-//		tblMemberList.setItems(data);
+		List<OverDueDetail> overdueDetail = allEntries.stream().map(entry -> {
+			String isbn = entry.getBookCopy().getBook().getIsbn();
+			String title = entry.getBookCopy().getBook().getTitle();
+			String copyNum = entry.getBookCopy().getCopyNum() + "";
+			boolean overDue = entry.getDueDate().after(new Date());
+			String overdueStatus = overDue ? "-" : "X";
+			return new OverDueDetail(isbn, title, copyNum, overdueStatus);
+		}).collect(Collectors.toList());
+		ObservableList<OverDueDetail> data = FXCollections.observableArrayList();
+		data.addAll(overdueDetail);
+		tblOverDue.setItems(data);
 	}
 
 	private void setUpMemberTableView() {
