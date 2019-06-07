@@ -16,9 +16,8 @@
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtMemberId" layoutX="344.0" layoutY="115.0" prefHeight="39.0" prefWidth="275.0" promptText="Member Id" />
-            <DatePicker fx:id="borrowDate" layoutX="341.0" layoutY="242.0" prefHeight="40.0" prefWidth="282.0" />
-            <JFXButton fx:id="btnCheckoutBookDetail" layoutX="340.0" layoutY="318.0" onAction="#addBookDetail" prefHeight="51.0" prefWidth="283.0" styleClass="login-button" stylesheets="@application.css" text="Enter book(s) detail" />
+            <JFXTextField fx:id="txtMemberId" alignment="BASELINE_LEFT" layoutX="344.0" layoutY="115.0" prefHeight="39.0" prefWidth="275.0" promptText="Member Id" />
+            <JFXButton fx:id="btnCheckoutBookDetail" layoutX="340.0" layoutY="206.0" onAction="#addBookDetail" prefHeight="51.0" prefWidth="283.0" styleClass="login-button" stylesheets="@application.css" text="Enter book(s) detail" />
             <Label fx:id="lblMemberFullName" layoutX="344.0" layoutY="160.0" prefHeight="34.0" prefWidth="275.0" />
          </children>
       </AnchorPane>
