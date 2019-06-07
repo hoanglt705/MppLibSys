@@ -169,8 +169,6 @@ public class AddBookController implements Initializable {
         lnColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         bioColumn.setCellValueFactory(new PropertyValueFactory<>("bio"));
         data = FXCollections.observableArrayList();
-
-        //data.addAll(AppContext.getInstance().getSelectedAuthor());
         tbvAuthor.setItems(data);
 
     }
