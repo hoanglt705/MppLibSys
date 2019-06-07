@@ -20,7 +20,7 @@ public class ValidationUtils {
     }
 
     public static boolean isZipcode(String s){
-        String regex = "[^\\d](\\d{5})[^\\d]";
+        String regex = "^[0-9]{5}(?:-[0-9]{4})?$";
         return s.matches(regex);
     }
 
@@ -34,7 +34,7 @@ public class ValidationUtils {
         System.out.println(isValidText("s424 sad"));
         System.out.println(isZipcode("323"));
         System.out.println(isZipcode("asdad"));
-        System.out.println(isZipcode("52557"));
+        System.out.println(isZipcode("52557-2123"));
         System.out.println(isZipcode("3343243"));
 
     }

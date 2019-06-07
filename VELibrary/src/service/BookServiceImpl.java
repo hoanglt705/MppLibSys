@@ -29,7 +29,12 @@ public class BookServiceImpl implements IBookService {
     }
 
 
-	@Override
+    @Override
+    public boolean existBook(String isbn) {
+        return dataaccess.existBook(isbn);
+    }
+
+    @Override
 	public Book find(String isbn) {
 		DataAccess dataAccess = new DataAccessFacade();
 		return dataAccess.findBook(isbn);

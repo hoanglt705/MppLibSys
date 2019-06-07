@@ -17,4 +17,5 @@ public interface IBookService {
 	public void addBookCopy(String isbn);
 	public long countAvailable(String isbn);
 	public void returnBook(String isbn);
+    public boolean existBook(String isbn);
 }

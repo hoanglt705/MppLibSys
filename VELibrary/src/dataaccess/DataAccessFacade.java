@@ -56,7 +56,6 @@ public class DataAccessFacade implements DataAccess {
         author.setId(authId);
         authors.put(authId, author);
         saveToStorage(StorageType.AUTHORS, authors);
-
         return author;
     }
     

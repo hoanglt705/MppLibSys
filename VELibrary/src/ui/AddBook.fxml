@@ -13,9 +13,9 @@
          <center>
             <AnchorPane prefHeight="530.0" prefWidth="730.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTextField fx:id="isbn" layoutX="48.0" layoutY="27.0" prefHeight="39.0" prefWidth="511.0" promptText="ISBN" />
-                  <JFXTextField fx:id="title" layoutX="48.0" layoutY="77.0" prefHeight="39.0" prefWidth="511.0" promptText="Title" />
-                   <JFXTextField fx:id="maxlength" layoutX="45.0" layoutY="127.0" prefHeight="39.0" prefWidth="514.0" promptText="Max Checkout Length" />
+                  <JFXTextField fx:id="isbn" layoutX="48.0" layoutY="27.0" prefHeight="39.0" prefWidth="511.0" promptText="ISBN(*)" />
+                  <JFXTextField fx:id="title" layoutX="48.0" layoutY="77.0" prefHeight="39.0" prefWidth="511.0" promptText="Title(*)" />
+                   <JFXTextField fx:id="maxlength" layoutX="45.0" layoutY="127.0" prefHeight="39.0" prefWidth="514.0" promptText="Max Checkout Days" />
                   <JFXButton fx:id="btnAddBook" layoutX="39.0" layoutY="474.0" onAction="#addBook" prefHeight="31.0" prefWidth="207.0" styleClass="login-button" stylesheets="@application.css" text="Add Book" />
                   <TableView fx:id="tbvAuthor" layoutX="43.0" layoutY="188.0" prefHeight="276.0" prefWidth="647.0">
                     <columns>

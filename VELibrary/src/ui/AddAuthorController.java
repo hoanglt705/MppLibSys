@@ -87,7 +87,7 @@ public class AddAuthorController {
             return false;
         }
 
-        if(!ValidationUtils.isNumberOnly(txtZip.getText())){
+        if(!ValidationUtils.isZipcode(txtZip.getText())){
             lblMessage.setText("Zipcode is invalid");
             return false;
         }

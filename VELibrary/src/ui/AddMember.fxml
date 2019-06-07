@@ -24,8 +24,8 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXTextField fx:id="txtFirstName" layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="First name" />
-                  <JFXTextField fx:id="txtLastName" layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Last name" />
+                  <JFXTextField fx:id="txtFirstName" layoutX="183.0" layoutY="27.0" prefHeight="39.0" prefWidth="376.0" promptText="First name(*)" />
+                  <JFXTextField fx:id="txtLastName" layoutX="183.0" layoutY="90.0" prefHeight="39.0" prefWidth="376.0" promptText="Last name(*)" />
                   <JFXTextField fx:id="txtStreet" layoutX="183.0" layoutY="157.0" prefHeight="39.0" prefWidth="376.0" promptText="Street" />
                   <JFXTextField fx:id="txtCity" layoutX="183.0" layoutY="222.0" prefHeight="39.0" prefWidth="376.0" promptText="City" />
                   <JFXTextField fx:id="txtState" layoutX="183.0" layoutY="299.0" prefHeight="39.0" prefWidth="376.0" promptText="State" />
@@ -33,7 +33,7 @@
                   <JFXTextField fx:id="txtPhone" layoutX="183.0" layoutY="428.0" prefHeight="39.0" prefWidth="376.0" promptText="Phone" />
                   <JFXButton fx:id="btnAdd" layoutX="254.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Member" onAction="#addMember"/>
                   <JFXButton fx:id="btnCancel" layoutX="388.0" layoutY="511.0" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Cancel" onAction="#cancel"/>
-                   <Label fx:id="lblMessage" layoutX="183.0" layoutY="550.0" prefHeight="34.0" prefWidth="324.0" text="" textAlignment="CENTER" textFill="firebrick"/>
+                   <Label fx:id="lblMessage" alignment="CENTER" layoutX="183.0" layoutY="550.0" prefHeight="34.0" prefWidth="324.0" text="" textAlignment="CENTER" textFill="firebrick"/>
 
                </children>
             </AnchorPane>

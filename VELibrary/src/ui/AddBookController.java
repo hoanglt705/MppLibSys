@@ -114,6 +114,14 @@ public class AddBookController implements Initializable {
             lblMessage.setText("ISBN is invalid");
             return false;
         }
+
+        IBookService service = new BookServiceImpl();
+
+        if(service.existBook(isbn.getText())){
+            lblMessage.setText("ISBN is existed");
+            return false;
+        }
+
         if("".equals(title.getText()) || "".equals(title.getText().trim())){
             lblMessage.setText("Title is invalid");
             return false;

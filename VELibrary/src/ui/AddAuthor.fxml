@@ -15,8 +15,8 @@
                <center>
                   <AnchorPane prefHeight="695.0" prefWidth="732.0" BorderPane.alignment="CENTER">
                      <children>
-                        <JFXTextField fx:id="txtFirstName" layoutX="64.0" layoutY="30.0" prefHeight="39.0" prefWidth="275.0" promptText="First name" />
-                        <JFXTextField fx:id="txtLastName" layoutX="406.0" layoutY="31.0" prefHeight="39.0" prefWidth="275.0" promptText="Last name" />
+                        <JFXTextField fx:id="txtFirstName" layoutX="64.0" layoutY="30.0" prefHeight="39.0" prefWidth="275.0" promptText="First name(*)" />
+                        <JFXTextField fx:id="txtLastName" layoutX="406.0" layoutY="31.0" prefHeight="39.0" prefWidth="275.0" promptText="Last name(*)" />
                         <JFXTextField fx:id="txtStreet" layoutX="67.0" layoutY="110.0" prefHeight="39.0" prefWidth="273.0" promptText="Street" />
                         <JFXTextField fx:id="txtCity" layoutX="405.0" layoutY="105.0" prefHeight="39.0" prefWidth="276.0" promptText="City" />
                         <JFXTextField fx:id="txtState" layoutX="62.0" layoutY="194.0" prefHeight="39.0" prefWidth="276.0" promptText="State" />

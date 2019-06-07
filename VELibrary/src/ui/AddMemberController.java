@@ -10,10 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import service.IMemberService;
 import service.MemberServiceImpl;
+
+import java.util.Optional;
 
 public class AddMemberController {
 	@FXML
@@ -62,8 +65,12 @@ public class AddMemberController {
             a.setHeaderText(String.format("Member id is %s", memberId));
             a.setContentText("Please provide this id to member");
             a.setAlertType(AlertType.INFORMATION);
-            a.showAndWait();
-            clear();
+
+            Optional<ButtonType> alert = a.showAndWait();
+            if (alert.get() == ButtonType.OK) {
+                clear();
+            }
+
         }
     }
 
@@ -78,7 +85,7 @@ public class AddMemberController {
             lblMessage.setText("Last Name is required");
             return false;
         }
-        if(!ValidationUtils.isNumberOnly(txtZip.getText())){
+        if(!ValidationUtils.isZipcode(txtZip.getText())){
             lblMessage.setText("Zipcode is invalid");
             return false;
         }
@@ -98,6 +105,7 @@ public class AddMemberController {
     	txtStreet.clear();
     	txtPhone.clear();
     	txtZip.clear();
+        lblMessage.setText("");
 
 	}
 
