@@ -25,7 +25,7 @@
                         <JFXTextField fx:id="txtCredentials" layoutX="403.0" layoutY="293.0" prefHeight="39.0" prefWidth="276.0" promptText="Credentials" />
                         <JFXTextArea fx:id="txtShortBio" layoutX="56.0" layoutY="363.0" prefHeight="72.0" prefWidth="625.0" promptText="Short bio" />
                         <JFXButton fx:id="btnAddAuthor" layoutX="212.0" layoutY="476.0" onAction="#addAuthor" prefHeight="40.0" prefWidth="135.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
-                         <Label fx:id="lblMessage" layoutX="56.0" layoutY="500.0" alignment="CENTER" prefHeight="36.0" prefWidth="495.0" text="" textAlignment="CENTER" textFill="firebrick"/>
+                         <Label fx:id="lblMessage" layoutX="56.0" layoutY="500.0" alignment="CENTER" prefHeight="109.0" prefWidth="495.0" text="" textAlignment="CENTER" textFill="firebrick"/>
 
                      </children>
                   </AnchorPane>
