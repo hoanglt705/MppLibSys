@@ -21,15 +21,59 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <JFXTextField fx:id="txtMemberId" layoutX="115.0" layoutY="39.0" promptText="Member id" />
-                        <JFXButton fx:id="btnPrint" layoutX="281.0" layoutY="39.0" mnemonicParsing="false" onAction="#print" text="Print" />
+                        <JFXButton fx:id="btnPrint" layoutX="281.0" layoutY="45.0" mnemonicParsing="false" onAction="#print" prefHeight="27.0" prefWidth="101.0" styleClass="login-button" stylesheets="@application.css" text="Print" />
+                        <Label fx:id="lblConsole" alignment="TOP_LEFT" layoutX="14.0" layoutY="90.0" prefHeight="412.0" prefWidth="560.0" style="-fx-background-color: #fff;" />
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="Overdue">
+          <Tab fx:id="tblOverdue" disable="true" text="Overdue">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="62.0" prefHeight="438.0" prefWidth="712.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <JFXTextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
+                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="101.0" styleClass="login-menu" text="Search" />
+                     </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="Member List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblMemberList" layoutX="17.0" layoutY="13.0" prefHeight="483.0" prefWidth="704.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="106.0" text="Id" />
+                            <TableColumn fx:id="colFirstname" prefWidth="195.0" text="First name" />
+                              <TableColumn fx:id="colLastName" prefWidth="201.0" text="Last name" />
+                              <TableColumn fx:id="colPhoneNumber" prefWidth="196.0" text="Telephone" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Book List">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblBookList" layoutX="14.0" layoutY="13.0" prefHeight="484.0" prefWidth="708.0">
+                          <columns>
+                            <TableColumn fx:id="colISBN" prefWidth="75.0" text="ISBN" />
+                            <TableColumn fx:id="colTitle" prefWidth="281.0" text="Title" />
+                              <TableColumn fx:id="colLoanPeriod" minWidth="0.0" prefWidth="114.0" text="Loan Period" />
+                              <TableColumn fx:id="colCopyNum" prefWidth="127.0" text="Copy Total" />
+                              <TableColumn fx:id="colAvailableNum" prefWidth="101.0" text="Available Total " />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

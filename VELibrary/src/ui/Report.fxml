@@ -21,7 +21,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <JFXTextField fx:id="txtMemberId" layoutX="115.0" layoutY="39.0" promptText="Member id" />
-                        <JFXButton fx:id="btnPrint" layoutX="281.0" layoutY="39.0" mnemonicParsing="false" onAction="#print" text="Print" styleClass="login-button" stylesheets="@application.css"/>
+                        <JFXButton fx:id="btnPrint" layoutX="281.0" layoutY="45.0" mnemonicParsing="false" onAction="#print" prefHeight="27.0" prefWidth="101.0" styleClass="login-button" stylesheets="@application.css" text="Print" />
                         <Label fx:id="lblConsole" alignment="TOP_LEFT" layoutX="14.0" layoutY="90.0" prefHeight="412.0" prefWidth="560.0" style="-fx-background-color: #fff;" />
                      </children></AnchorPane>
             </content>
@@ -37,7 +37,7 @@
                           </columns>
                         </TableView>
                         <JFXTextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
-                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" text="Search" />
+                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="101.0" styleClass="login-menu" text="Search" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -45,7 +45,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tblMemberList" layoutX="22.0" layoutY="30.0" prefHeight="412.0" prefWidth="699.0">
+                        <TableView fx:id="tblMemberList" layoutX="17.0" layoutY="13.0" prefHeight="483.0" prefWidth="704.0">
                           <columns>
                             <TableColumn fx:id="colId" prefWidth="106.0" text="Id" />
                             <TableColumn fx:id="colFirstname" prefWidth="195.0" text="First name" />
@@ -61,7 +61,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tblBookList" layoutX="11.0" layoutY="13.0" prefHeight="484.0" prefWidth="701.0">
+                        <TableView fx:id="tblBookList" layoutX="14.0" layoutY="13.0" prefHeight="484.0" prefWidth="708.0">
                           <columns>
                             <TableColumn fx:id="colISBN" prefWidth="75.0" text="ISBN" />
                             <TableColumn fx:id="colTitle" prefWidth="281.0" text="Title" />

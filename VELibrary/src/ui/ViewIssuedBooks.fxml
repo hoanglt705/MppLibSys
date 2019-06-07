@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="60.0" prefWidth="640.0" style="-fx-background-color: #DBE2F4;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="-1.0" prefHeight="62.0" prefWidth="640.0" text="View issued items">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="-1.0" prefHeight="62.0" prefWidth="700.0" text="View issued items">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
@@ -23,7 +22,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="613.0" prefWidth="700.0">
+            <TableView layoutX="11.0" layoutY="11.0" prefHeight="588.0" prefWidth="676.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />

@@ -17,7 +17,7 @@
                </font>
             </Label>
             <JFXTextField fx:id="txtISBN" layoutX="344.0" layoutY="115.0" prefHeight="39.0" prefWidth="275.0" promptText="ISBN" />
-            <JFXButton fx:id="btnAddBookCopy" layoutX="340.0" layoutY="318.0" onAction="#addBookCopy" prefHeight="51.0" prefWidth="283.0" styleClass="login-button" stylesheets="@application.css" text="Add" />
+            <JFXButton fx:id="btnAddBookCopy" layoutX="343.0" layoutY="192.0" onAction="#addBookCopy" prefHeight="51.0" prefWidth="276.0" styleClass="login-button" stylesheets="@application.css" text="Add" />
             <Label fx:id="lblMemberFullName" layoutX="344.0" layoutY="160.0" prefHeight="34.0" prefWidth="275.0" />
          </children>
       </AnchorPane>
