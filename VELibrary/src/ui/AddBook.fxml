@@ -9,15 +9,15 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AddBookController">
    <children>
-      <BorderPane prefHeight="672.0" prefWidth="729.0">
+      <BorderPane prefHeight="642.0" prefWidth="730.0">
          <center>
-            <AnchorPane prefHeight="597.0" prefWidth="648.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="533.0" prefWidth="730.0" BorderPane.alignment="CENTER">
                <children>
                   <JFXTextField fx:id="isbn" layoutX="48.0" layoutY="27.0" prefHeight="39.0" prefWidth="511.0" promptText="ISBN" />
                   <JFXTextField fx:id="title" layoutX="48.0" layoutY="77.0" prefHeight="39.0" prefWidth="511.0" promptText="Title" />
                    <JFXTextField fx:id="maxlength" layoutX="45.0" layoutY="127.0" prefHeight="39.0" prefWidth="514.0" promptText="Max Checkout Length" />
-                  <JFXButton fx:id="btnAddBook" layoutX="39.0" layoutY="506.0" onAction="#addBook" prefHeight="31.0" prefWidth="207.0" styleClass="login-button" stylesheets="@application.css" text="Add Book" />
-                  <TableView fx:id="tbvAuthor" layoutX="43.0" layoutY="188.0" prefHeight="300.0" prefWidth="647.0">
+                  <JFXButton fx:id="btnAddBook" layoutX="39.0" layoutY="474.0" onAction="#addBook" prefHeight="31.0" prefWidth="207.0" styleClass="login-button" stylesheets="@application.css" text="Add Book" />
+                  <TableView fx:id="tbvAuthor" layoutX="43.0" layoutY="188.0" prefHeight="276.0" prefWidth="647.0">
                     <columns>
                       <TableColumn fx:id="fnColumn" prefWidth="75.0" text="First Name" />
                       <TableColumn fx:id="lnColumn" prefWidth="75.0" text="Last Name" />
@@ -25,7 +25,7 @@
                     </columns>
                   </TableView>
                   <JFXButton fx:id="btnAddAuthor" layoutX="586.0" layoutY="148.0" onAction="#showAddAuthorScreen" prefHeight="31.0" prefWidth="103.0" styleClass="login-button" stylesheets="@application.css" text="Add Author" />
-                   <Label fx:id="lblMessage" layoutX="43.0" layoutY="550.0" prefHeight="34.0" prefWidth="649.0" />
+                   <Label fx:id="lblMessage" layoutX="87.0" layoutY="550.0" alignment="CENTER" prefHeight="69.0" prefWidth="495.0" text="" textAlignment="CENTER" textFill="firebrick"/>
                </children>
             </AnchorPane>
          </center>

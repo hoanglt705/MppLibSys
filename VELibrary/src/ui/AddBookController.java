@@ -104,14 +104,13 @@ public class AddBookController implements Initializable {
             lblMessage.setText("Can't add this book!");
         }
 
-        clear();
 
     }
 
 
     private boolean validateForm(){
 
-        if(ValidationUtils.isValidText(isbn.getText())){
+        if("".equals(isbn.getText()) || "".equals(isbn.getText().trim())){
             lblMessage.setText("ISBN is invalid");
             return false;
         }
@@ -119,11 +118,15 @@ public class AddBookController implements Initializable {
             lblMessage.setText("Title is invalid");
             return false;
         }
-        if(ValidationUtils.isNumberOnly(maxlength.getText())){
-            lblMessage.setText("Checkout length is numberic");
+        if(!ValidationUtils.isNumberOnly(maxlength.getText())){
+            lblMessage.setText("Checkout length is invalid");
             return false;
         }
 
+        if(data == null || data.isEmpty()){
+            lblMessage.setText("Please add a author");
+            return false;
+        }
 
         return true;
     }
@@ -135,7 +138,7 @@ public class AddBookController implements Initializable {
         title.clear();
         maxlength.clear();
         data.clear();
-
+        lblMessage.setText("");
     }
 
 

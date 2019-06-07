@@ -72,13 +72,13 @@ public class TestData {
 		td.libraryMemberData();
 		td.userData();
 		td.checkoutRecordEntry();
+        td.AuthorData();
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
 		System.out.println(da.readUserMap());
 
-        UUID uuid = UUID.randomUUID();
-        long l = ByteBuffer.wrap(uuid.toString().getBytes()).getLong();
-        System.out.println(">>" + Long.toString(l, Character.MAX_RADIX));
+
+
 
 	}
 	
