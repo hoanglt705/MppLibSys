@@ -154,7 +154,7 @@ public class AddBookController implements Initializable {
     void showAddAuthorScreen(ActionEvent event) throws IOException {
     	Stage stage = new Stage();
     	
-    	Parent root = (Parent) FXMLLoader.load(getClass().getResource("../ui/SelectAuthor.fxml"));
+    	Parent root = (Parent) FXMLLoader.load(getClass().getResource("SelectAuthor.fxml"));
     	stage.initStyle(StageStyle.UTILITY);
     	stage.setScene(new Scene(root));
     	stage.showAndWait();
