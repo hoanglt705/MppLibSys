@@ -55,9 +55,22 @@ public class CheckoutBookDetailController implements Initializable {
 
 	@FXML
 	void addToList(ActionEvent event) {
-		String bookId = txtBookId.getText();
-		Book book = bookService.find(bookId);
-		data.add(new BookDetail(bookId, book.getTitle()));
+		String isbn = txtBookId.getText();
+		boolean available = bookService.existBook(isbn);
+		if(isbn == null || isbn.length() == 0) {
+			Alert a = new Alert(AlertType.ERROR);
+	    	a.setHeaderText("Please input the isbn");
+	    	a.showAndWait();
+	    	return;
+		}
+		if(!available) {
+			Alert a = new Alert(AlertType.ERROR);
+	    	a.setHeaderText("The book does not exist");
+	    	a.showAndWait();
+	    	return;
+		}
+		Book book = bookService.find(isbn);
+		data.add(new BookDetail(isbn, book.getTitle()));
 		txtBookId.clear();
 	}
 
