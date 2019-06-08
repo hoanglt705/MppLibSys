@@ -39,7 +39,7 @@
                           </columns>
                         </TableView>
                         <JFXTextField fx:id="txtISBN" layoutX="23.0" layoutY="21.0" promptText="ISBN" />
-                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" text="Search" styleClass="login-button" stylesheets="@application.css"/>
+                        <JFXButton fx:id="btnOverDueSearch" layoutX="184.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchOverdue" styleClass="login-button" stylesheets="@application.css" text="Search" />
                      </children></AnchorPane>
             </content>
           </Tab>

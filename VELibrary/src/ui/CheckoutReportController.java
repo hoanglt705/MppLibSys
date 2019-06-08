@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.jfoenix.controls.JFXButton;
@@ -270,6 +271,34 @@ public class CheckoutReportController implements Initializable{
 		public String getPhone() {
 			return phone.get();
 		}
+	}
+	
+	@FXML
+	public void searchOverdue() {
+		ICheckoutService checkoutService = new CheckoutService();
+		Collection<CheckoutRecord> checkoutRecords = checkoutService.findAll();
+		Collection<CheckoutRecordEntry> allEntries = new ArrayList<CheckoutRecordEntry>();
+		checkoutRecords.stream().forEach(record -> {
+			allEntries.addAll(record.getCheckoutRecords());
+		});
+
+		String searchTerm = txtISBN.getText();
+		List<OverDueDetail> overdueDetail;
+		
+		Predicate<CheckoutRecordEntry> filter = searchTerm.isEmpty() ? entry -> true : entry -> entry.getBookCopy().getBook().getIsbn().equals(searchTerm);
+
+		overdueDetail = allEntries.stream().filter(filter).map(entry -> {
+				String isbn = entry.getBookCopy().getBook().getIsbn();
+				String title = entry.getBookCopy().getBook().getTitle();
+				String copyNum = entry.getBookCopy().getCopyNum() + "";
+				boolean overDue = entry.getDueDate().after(new Date());
+				String overdueStatus = overDue ? "-" : "X";
+
+				return new OverDueDetail(isbn, title, copyNum, overdueStatus);
+			}).collect(Collectors.toList());
+		ObservableList<OverDueDetail> data = FXCollections.observableArrayList();
+		data.addAll(overdueDetail);
+		tblOverDue.setItems(data);
 	}
 	
 	public static class OverDueDetail {
